@@ -2,7 +2,7 @@ import datetime
 import time
 
 # 연도와 월을 입력 받으면 그 달의 달력을 간단하게 출력하는 프로그램입니다.
-# 16년 9월 12일에 시작해 당일 날 만들었습니다.
+# 16년 9월 12일에 시작해 당일 날 완성했습니다.
 
 def weekday_finder(weekday):
     return ['월','화','수','목','금','토','일'][weekday]

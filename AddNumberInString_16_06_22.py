@@ -29,39 +29,52 @@ def sentence_trim(sentence):
     return sentence
 
 
-############
-##### 1. Get an input sentence from the user.
-############
-original_sentence = input("Give me any English sentence : ")
-refined_sentence = sentence_trim(original_sentence)
 
-
-############
-###### 2. Check if refined_sentence contains any none alphabetic words
-############
-
-    ### any, map, function is as same as in R.
-while any(map(lambda x: x.lower() not in string.ascii_lowercase, refined_sentence)):
-    original_sentence = input("We don't accept any kind of special characters and numbers. Again : ")
+def add_number_into_string():
+    ############
+    ##### 1. Get an input sentence from the user.
+    ############
+    original_sentence = input("Give me any English sentence : ")
     refined_sentence = sentence_trim(original_sentence)
 
 
-############
-###### 3. Make a list containing the absolute gap between two characters
-############
-gap_list = []
-for i in range(len(refined_sentence) - 1):
-    gap_list.append(
-                abs(
-                    ord(refined_sentence[i]) - ord(refined_sentence[i+1])))
+    ############
+    ###### 2. Check if refined_sentence contains any none alphabetic words
+    ############
 
-    ###   ord function calculates a character's unicode in decimal points
-print(gap_list)
+        ### any, map, function is as same as in R.
+    while any(map(lambda x: x.lower() not in string.ascii_lowercase, refined_sentence)):
+        original_sentence = input("We don't accept any kind of special characters and numbers. Again : ")
+        refined_sentence = sentence_trim(original_sentence)
 
 
+    ############
+    ###### 3. Make a list containing the absolute gap between two characters
+    ############
+    gap_list = []
+    for i in range(len(refined_sentence) - 1):
+        gap_list.append(
+                    abs(
+                        ord(refined_sentence[i]) - ord(refined_sentence[i+1])))
 
-############
-##### 4. Make an empty string and append one of each lists' string turn by turn to it.
-############
+        #! ord function calculates a character's unicode in decimal points
 
-result = ''
+
+
+
+    ############
+    ##### 4. Make an empty string and append one of each lists' string turn by turn to it.
+    ############
+
+    result = ''
+
+    for i,c in enumerate(refined_sentence):
+        # if it's not the last element of the sentence
+        if i != len(refined_sentence) - 1:
+            result += c
+            result += str(gap_list[i])
+        else:
+            result += c
+    return result
+
+print(add_number_into_string())
