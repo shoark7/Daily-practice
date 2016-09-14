@@ -2,7 +2,7 @@ import string
 import random
 # 여러 실험에서 쓰일 랜덤 문자열 생성함수를 만듭니다.
 # 문자열은 최소 2글자, 최대 10글자 사이까지 만들어질 수 있고, 영어, 숫자로만 구성되어집니다.
-# 당일 날 완성했습니다.
+# 16년 8월 24일 날 시작해서 당일 날 완성했습니다.
 
 def random_string_maker():
     english_and_numbers = string.ascii_letters + string.digits
@@ -16,10 +16,6 @@ def random_string_maker():
 
     return result
 
-# test
-# if __name__ == '__main__':
-#     for i in range(10):
-#         print('{0:02d} '.format(i+1) + '/ 10, '+random_string_maker())
 
 
 # 다음은 실험을 위해 1부터 10까지의 정수를 키로 하고, 랜덤문자열을 밸류로 하는 사전을 만든다

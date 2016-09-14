@@ -2,6 +2,11 @@ a.txt
 b.txt
 c.txt
 
+### intellij ###
+.idea
+.idea/inspectionProfiles/Project_Default.xml
+.idea/workspace.xml
+
 
 # Created by https://www.gitignore.io/api/pycharm,python,sublimetext,django,windows
 
