@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4285424-9f75-4371-ad53-9e46ee692841" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/deletemesoon.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AddNumberInString_16_06_22.py" afterPath="$PROJECT_DIR$/AddNumberInString_16_06_22.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FizzBuzz_16_08_26.py" afterPath="$PROJECT_DIR$/FizzBuzz_16_08_26.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RandomStringMaker_16_08_24.py" afterPath="$PROJECT_DIR$/RandomStringMaker_16_08_24.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TimeChecker_16_08_19.py" afterPath="$PROJECT_DIR$/TimeChecker_16_08_19.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sort_with_key_16_08_30.py" afterPath="$PROJECT_DIR$/sort_with_key_16_08_30.py" />
     </list>
     <ignored path="Daily practice.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -698,7 +691,7 @@
         <state relative-caret-position="352">
           <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="false" />
           </folding>
         </state>
       </provider>
