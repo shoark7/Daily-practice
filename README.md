@@ -15,6 +15,7 @@
 
 #### :file_folder: Contents
 > :orange_book: New version format(since 16/09/17. contains comments and written in English.)
+> - [EngCharMover_16_09_17.py](https://github.com/shoark7/Daily-practice/blob/master/EngCharMover_16_09_17.py)
 > - [WeekdayChecker_16_09_16.py](https://github.com/shoark7/Daily-practice/blob/master/WeekdayChecker_16_09_16.py)
 
 > :blue_book: Old versioin format(before 16/09/17. Written in korean and contains very beginning of my Python.
@@ -27,9 +28,9 @@
 > - [RandomStringMaker_16_08_24.py](https://github.com/shoark7/Daily-practice/blob/master/RandomStringMaker_16_08_24.py)
 > - [TimeChecker_16_08_19.py](https://github.com/shoark7/Daily-practice/blob/master/TimeChecker_16_08_19.py)
 > - [travelExpenseCalculator_16_17_21.py](https://github.com/shoark7/Daily-practice/blob/master/travelExpenseCalculator_16_17_21.py)
-> - [rockpaperscissor_16_7_18.py](https://github.com/shoark7/Daily-practice/blob/master/rockpaperscissor_16_7_18.py)
+> - [rockpaperscissor_16_07_18.py](https://github.com/shoark7/Daily-practice/blob/master/rockpaperscissor_16_7_18.py)
 > - [AddNumberInString_16_06_22.py](https://github.com/shoark7/Daily-practice/blob/master/AddNumberInString_16_06_22.py)
-> - [simple_calculator_16_6_16.py](https://github.com/shoark7/Daily-practice/blob/master/simple_calculator_16_6_16.py)
+> - [simple_calculator_16_06_16.py](https://github.com/shoark7/Daily-practice/blob/master/simple_calculator_16_6_16.py)
 
 > :notebook_with_decorative_cover: Others:
 > [poem.py](https://github.com/shoark7/Daily-practice/blob/master/peom.py) 
