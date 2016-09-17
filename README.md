@@ -32,5 +32,5 @@
 > - [simple_calculator_16_6_16.py](https://github.com/shoark7/Daily-practice/blob/master/simple_calculator_16_6_16.py)
 
 > :notebook_with_decorative_cover: Others:
-> [poem.txt](https://github.com/shoark7/Daily-practice/blob/master/Practice%201.py)
-> - This contains a good poem for your stained heart with code. Enjoy.
+> [poem.py](https://github.com/shoark7/Daily-practice/blob/master/peom.py) 
+> > This contains a good poem for your stained heart with code. Enjoy.
