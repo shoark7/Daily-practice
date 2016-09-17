@@ -4,7 +4,7 @@ This function is designed to calculate weekdays with given year, month, day.
 No modules used but only the fact that 0001.01.01 AC is Monday.
 
 Start date = 2016/09/16
-End date = ??????
+End date = 2016/09/17
 
 """
 
@@ -46,7 +46,32 @@ def weekday_checker(year, month, day):
     5. We get the day.
     """
 
+    # Year count. Non-lunatic year % 7 = 1, and lunatic year is 2. So we count 1 or 2 until the given year.
+    for y in range(1, year):
+        if is_lunatic(y):
+            days_counter += 2
+        else:
+            days_counter += 1
+
+    for m in range(month -1):
+        days_counter += days_of_month[m]
+
+    days_counter += (day - 1)
+    # Until part 3 is done.
+
+    days_counter %= 7
+    return weekdays[days_counter]
 
 
 
+# example
+print(weekday_checker(2020,3,2))
+print(weekday_checker(3000, 1, 1))
+
+"""
+comment : This works quite well. But I wonder if is too long although it contains some
+comment code. Can it be shorter? Anyway input type and value test is satisfying.
+And it goes my mind that lunatic year cycle is (1, 1, 1, 2). If I had grouped those and
+calculated, year counting would have been more convenient.
+"""
 
