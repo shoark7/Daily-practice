@@ -47,7 +47,7 @@ def sum_of_divisors(n):
 
 
 print(sum_of_divisors(12000))
-print(sum_of_divisors(100000))
+print(sum_of_divisors(100000000))
 
 """
 Actually, just divising number by from 1 to number would be much more easier to implement.
