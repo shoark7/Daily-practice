@@ -15,6 +15,7 @@
 
 #### :file_folder: Contents
 > :orange_book: New version format(since 16/09/17. contains comments and written in English.)
+> - [GetDivisors_16_09_30.py](https://github.com/shoark7/Daily-practice/blob/master/GetDivisors_16_09_30.py)
 > - [SumOfDivisors_16_09_29.py](https://github.com/shoark7/Daily-practice/blob/master/SumOfDivisors_16_09_29.py)
 > - [MultiplyAll_16_09_26.py](https://github.com/shoark7/Daily-practice/blob/master/MultiplyAll_16_09_26.py)
 > - [NewFizzBuzz_16_09_24.py](https://github.com/shoark7/Daily-practice/blob/master/NewFizzBuzz_16_09_24.py)
