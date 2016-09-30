@@ -26,6 +26,8 @@ def get_divisors(n):
         if n == 1:
             break
         divisor -= 1
+        if divisor <= 1 and n >2:
+            return -1
 
     result_list.sort(key=lambda x: x[0])
     """
@@ -36,5 +38,5 @@ def get_divisors(n):
     return int(''.join([''.join([str(divisor) for n in range(count)]) for divisor, count in result_list]))
 
 
-print(get_divisors(12))
+print(get_divisors(19))
 print(get_divisors(450))
