@@ -38,7 +38,7 @@
 > - [travelExpenseCalculator_16_17_21.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/travelExpenseCalculator_16_17_21.py)
 > - [rockpaperscissor_16_07_18.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/rockpaperscissor_16_7_18.py)
 > - [AddNumberInString_16_06_22.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/AddNumberInString_16_06_22.py)
-> - [simple_calculator_16_06_16.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/simple_calculator_16_6_16.py)
+> - [simple_calculator_16_06_16.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/simple_calculator_16_06_16.py)
 
 > :notebook_with_decorative_cover: Others:
 
