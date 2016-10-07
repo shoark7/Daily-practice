@@ -36,7 +36,7 @@
 > - [RandomStringMaker_16_08_24.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/RandomStringMaker_16_08_24.py)
 > - [TimeChecker_16_08_19.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/TimeChecker_16_08_19.py)
 > - [travelExpenseCalculator_16_17_21.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/travelExpenseCalculator_16_17_21.py)
-> - [rockpaperscissor_16_07_18.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/rockpaperscissor_16_7_18.py)
+> - [rockpaperscissor_16_07_18.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/rockpaperscissor_16_07_18.py)
 > - [AddNumberInString_16_06_22.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/AddNumberInString_16_06_22.py)
 > - [simple_calculator_16_06_16.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/simple_calculator_16_06_16.py)
 
