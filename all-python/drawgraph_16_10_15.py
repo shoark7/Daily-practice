@@ -1,10 +1,10 @@
 """
 Draw a one dimensional line of 'y = x + a' with print function.
 Input:
-    size: Total size of graph. If size = 3, graph range would be -3 to 3.
+    size: Total size of graph. If size = 3, graph x and y range would be -3 to 3.
     a   : Intercept.
 Output : 1D line of 'y = x +a'.
-         Empty spaces are '.', axises are either '|' or '-',
+         Empty spaces are '.', axes are either '|' or '-',
          (0,0) is drawn into '+'. Line character '/' overlaps the existing points.
 """
 
@@ -31,12 +31,15 @@ def draw_graph(size, a):
             pass
 
     # Type of our graph is 'list'. We beautify it by making it 'string' format and print it.
-    beautified_graph = '\n'.join([' '.join(row) for row in graph])
+
+    # beautified_graph = '\n'.join([' '.join(row) for row in graph])
+    beautified_graph = '\n'.join(' '.join(row) for row in graph)
+    # str.join method gets its first argument as an iterable, not list.
 
     print(beautified_graph)
 
-draw_graph(3,1)
-draw_graph(3,0)
+# draw_graph(3,1)
+# draw_graph(3,0)
 draw_graph(3,5)
 
 """
