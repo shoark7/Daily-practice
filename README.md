@@ -15,6 +15,7 @@
 
 #### :file_folder: Contents
 > :orange_book: New version format(since 16/09/17. contains comments and written in English.)
+> - [bs4_practice_1_161103.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/bs4_practice_1_161103.py)
 > - [drawgraph_16_10_15.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/drawgraph_16_10_15.py)
 > - [NumberSeparator_16_10_07](https://github.com/shoark7/Daily-practice/blob/master/all-python/NumberSeparator_16_10_07.py)
 > - [MemoizeFIbo_16_10_03](https://github.com/shoark7/Daily-practice/blob/master/all-python/MemoizeFIbo_16_10_03.py)
