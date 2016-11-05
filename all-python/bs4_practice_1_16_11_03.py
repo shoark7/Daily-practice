@@ -109,7 +109,7 @@ def find_search_rank_list():
     3. I don't know why but length of final results is 11, not 10. We exclude last element.
     """
 
-# print(find_search_rank_list())
+print(find_search_rank_list())
 """results
 ['월드시리즈', '채프먼', '한광옥', '시카고컵스', '장시호', '질투의 화신', '회오리축구단', '100마일', '채동욱', '장희진']
 It varies depending on time, because it is "realtime" search.
@@ -168,4 +168,4 @@ def get_blog_title(keyword, limit=20):
 
     return result_list
 
-pprint(get_blog_title('고해해라 자엄냥', 50))
+pprint(get_blog_title('로스트 인 더스트', 100))
