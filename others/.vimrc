@@ -1,7 +1,7 @@
 "Configuration for vi by Stonehead Park
 "Date : 2016/12/24 Christmas-eve :)
 "Distribution is really appreciated.
-"Version : 1.0.1
+"Version : 1.0.2
 
 
 set nocompatible              " be iMproved, required
@@ -116,13 +116,13 @@ set ignorecase
     "Next window
 nnoremap <C-W> <C-W><C-W>
     "Down window
-nnoremap <C-K> <C-w><C-J>
+nnoremap <C-J> <C-w><C-J>
     "Upper Window
-nnoremap <C-I> <C-W><C-K>
+nnoremap <C-K> <C-W><C-K>
     "Right window
 nnoremap <C-L> <C-W><C-L>
     "Left window
-nnoremap <C-J> <C-W><C-H>
+nnoremap <C-H> <C-W><C-H>
 
 "Useful shortcut 2. Making fold and unfold
 nnoremap <space> za
