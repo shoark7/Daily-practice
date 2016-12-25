@@ -1,7 +1,7 @@
 "Configuration for vi by Stonehead Park
 "Date : 2016/12/24 Christmas-eve :)
 "Distribution is really appreciated.
-"Version : 1.0.0
+"Version : 1.0.1
 
 
 set nocompatible              " be iMproved, required
@@ -77,6 +77,7 @@ endif
 nmap <F8> :NERDTree<CR>
 nmap <F9> :TlistToggle<CR>
 autocmd FileType python map <buffer> <F3> :call Flake8()<CR>
+map <Enter> ko<ESC>i
 
 "Window settings like positions of each window
 let NERDTreeWinPos = "left"
