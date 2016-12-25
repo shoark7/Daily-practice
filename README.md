@@ -46,3 +46,4 @@
 
 > - [poem.py](https://github.com/shoark7/Daily-practice/blob/master/others/peom.py) :  This contains a good poem for your stained heart with code. Enjoy.
 > - [RegularExpression_in_Python.md](https://github.com/shoark7/Daily-practice/blob/master/others/RegularExpression_in_Python.md) : Translating [Python RE libray reference](https://docs.python.org/3/howto/regex.html#regex-howto) in Korean. Still working on. ~~Too long.~~
+> - [.vimrc](https://github.com/shoark7/Daily-practice/blob/master/others/.vimrc) : My vim configuration file. Keep updating.
