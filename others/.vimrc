@@ -76,7 +76,17 @@ endif
 "Keymap for functions 
 nmap <F8> :NERDTree<CR>
 nmap <F9> :TlistToggle<CR>
+
+"Keymap for window sizing
+nmap <S-F5> :vertical resize +5<CR>
+nmap <S-F6> :vertical resize -5<CR>
+nmap <S-F7> :resize +5<CR>
+nmap <S-F8> :resize -5<CR>
+
+"Keymap for syntax inspection
 autocmd FileType python map <buffer> <F3> :call Flake8()<CR>
+
+"Keymap for personal utility
 map <Enter> ko<ESC>i
 
 "Window settings like positions of each window
@@ -116,7 +126,7 @@ set ignorecase
     "Next window
 nnoremap <C-W> <C-W><C-W>
     "Down window
-nnoremap <C-J> <C-w><C-J>
+nnoremap <C-J> <C-W><C-J>
     "Upper Window
 nnoremap <C-K> <C-W><C-K>
     "Right window
@@ -162,5 +172,3 @@ syntax on
 
 "Theme toggling
 call togglebg#map("<F5>")
-
-
