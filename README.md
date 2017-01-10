@@ -15,6 +15,8 @@
 
 #### :file_folder: Contents
 > :orange_book: New version format(since 16/09/17. contains comments and written in English.)
+> - [get_prime170109.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/get_prime170109.py)
+> - [get_maxmultiplier_170109.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/get_maxmultiplier_170109.py)
 > - [thread_inpython161225.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/thread_inpython161225.py)
 > - [get_pokemonphoto161204.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/get_pokemonphoto161204.py)
 > - [bs4_practice_2_16_11_05.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/bs4_practice_2_16_11_05.py)
