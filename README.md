@@ -15,6 +15,9 @@
 
 #### :file_folder: Contents
 > :orange_book: New version format(since 16/09/17. contains comments and written in English.)
+> - [count_8_170112.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/count_8_170112.py)
+> - [get_nth_palindrome_170112.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/get_nth_palindrome_170112.py)
+> - [get_primefactor170111.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/get_primefactor170111.py)
 > - [get_prime170109.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/get_prime170109.py)
 > - [get_maxmultiplier_170109.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/get_maxmultiplier_170109.py)
 > - [thread_inpython161225.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/thread_inpython161225.py)
