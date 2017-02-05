@@ -15,6 +15,7 @@
 
 #### :file_folder: Contents
 > :orange_book: New version format(since 16/09/17. contains comments and written in English.)
+> - [gcd_lcm_170205.py]:(https://github.com/shoark7/Daily-practice/blob/master/all-python/gcd_lcm_170205.py)
 > - [get_minimal_integer_170123.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/get_minimal_integer_170123.py)
 > - [combination_180118.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/combination_170118.py)
 > - [count_8_170112.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/count_8_170112.py)
