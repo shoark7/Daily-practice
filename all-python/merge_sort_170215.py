@@ -50,5 +50,5 @@ def merge_sort(the_list):
     return the_list
     
 
-the_list = [1,12, 12,4,11, 120 ,4, 53]
+the_list = [1, 12, 12, 4, 11, 120, 4, 53]
 print(merge_sort(the_list))
