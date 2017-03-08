@@ -15,6 +15,7 @@
 
 #### :file_folder: Contents
 > :orange_book: New version format(since 16/09/17. contains comments and written in English.)
+> - [integrate_polynomial_function_170308.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/integrate_polynomial_function_170308.py)
 > - [differentiate_polynomial_function_170308.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/differentiate_polynomial_function_170308.py)
 > - [merge_sort_17_03_01.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/merge_sort_17_03_01.py)
 > - [merge_sort_170215.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/merge_sort_170215.py)
