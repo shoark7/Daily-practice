@@ -1,7 +1,7 @@
 "Configuration for vi by Stonehead Park
-"Date : 2016/12/24 Christmas-eve :)
+"Date : 2017/03/11
 "Distribution is really appreciated.
-"Version : 1.0.2
+"Version : 1.0.3
 
 
 set nocompatible              " be iMproved, required
@@ -163,6 +163,9 @@ au BufNewFile,BufRead *.js, *.html, *.css
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
+
+"Setting for c programming
+set tabstop=4
 
 "Notify for bad whitespaces"
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
