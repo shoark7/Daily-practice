@@ -15,6 +15,9 @@
 
 #### :file_folder: Contents
 > :orange_book: New version format(since 16/09/17. contains comments and written in English.)
+> - [linked_array_170325.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/linked_array_170325.py)
+> - [sort_collections_170324.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/sort_collections_170324.py)
+> - [make_polar_coordinates_170324.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/make_polar_coordinates_170324.py)
 > - [binary_tree_class_170320.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/binary_tree_class_170320.py)
 > - [binary_tree_list_170320.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/binary_tree_list_170320.py)
 > - [integrate_polynomial_function_170308.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/integrate_polynomial_function_170308.py)
