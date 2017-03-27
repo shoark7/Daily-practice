@@ -52,9 +52,10 @@ def binary_search(iterable, value):
 
     iterable.sort()
 
+    if not (iterable[0] <= value <= iterable[len(iterable) - 1]):
+        return -1
+
     def recursive_search(iterable, value, start, end):
-        if not (iterable[start] <= value <= iterable[end]):
-            return -1
 
         if start > end:
             return -1
