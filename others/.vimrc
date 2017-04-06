@@ -87,7 +87,7 @@ nmap <S-F8> :resize -5<CR>
 autocmd FileType python map <buffer> <F3> :call Flake8()<CR>
 
 "Keymap for personal utility
-map <Enter> ko<ESC>i
+map <Enter> i<ENTER>
 
 "Window settings like positions of each window
 let NERDTreeWinPos = "left"
@@ -149,7 +149,7 @@ set foldmethod=indent
 set foldlevel=99
 
 "Indentaion setting for python
-au BufNewFile,BufRead *.py
+au BufNewFile,BufRead *.py,*.c
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
@@ -159,7 +159,7 @@ au BufNewFile,BufRead *.py
     \ set fileformat=unix
 
 "Indentation for js, html, css
-au BufNewFile,BufRead *.js, *.html, *.css
+au BufNewFile,BufRead *.js,*.html,*.css
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
