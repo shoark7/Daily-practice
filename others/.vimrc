@@ -1,7 +1,7 @@
 "Configuration for vi by Stonehead Park
-"Date : 2017/03/11
+"Date : 2017/04/07
 "Distribution is really appreciated.
-"Version : 1.0.3
+"Version : 1.0.4
 
 
 set nocompatible              " be iMproved, required
@@ -73,21 +73,6 @@ else
 	set background=dark
 endif
 
-"Keymap for functions 
-nmap <F8> :NERDTree<CR>
-nmap <F9> :TlistToggle<CR>
-
-"Keymap for window sizing
-nmap <S-F5> :vertical resize +5<CR>
-nmap <S-F6> :vertical resize -5<CR>
-nmap <S-F7> :resize +5<CR>
-nmap <S-F8> :resize -5<CR>
-
-"Keymap for syntax inspection
-autocmd FileType python map <buffer> <F3> :call Flake8()<CR>
-
-"Keymap for personal utility
-map <Enter> i<ENTER>
 
 "Window settings like positions of each window
 let NERDTreeWinPos = "left"
@@ -122,23 +107,6 @@ set hlsearch
 " Ignorecase in search mode and normal mode
 set ignorecase
 
-"Useful shortcut 1. Shifting through windowsa
-    "Next window
-nnoremap <C-W> <C-W><C-W>
-    "Down window
-nnoremap <C-J> <C-W><C-J>
-    "Upper Window
-nnoremap <C-K> <C-W><C-K>
-    "Right window
-nnoremap <C-L> <C-W><C-L>
-    "Left window
-nnoremap <C-H> <C-W><C-H>
-
-"Useful shortcut 2. Making fold and unfold
-nnoremap <space> za
-
-"Useful shortcut 3. ESC key --> jj
-inoremap jj <ESC>
 
 "Auto NERDTree option
 "autocmd VimEnter * NERDTree
@@ -175,3 +143,44 @@ syntax on
 
 "Theme toggling
 call togglebg#map("<F5>")
+
+
+"""""""""""""""""""""""""""""""""""""""""""
+""""" Personally customized keymaps """""""
+"""""""""""""""""""""""""""""""""""""""""""
+
+"Useful shortcut 1. Shifting through windows
+    "Next window
+nnoremap <C-W> <C-W><C-W>
+    "Down window
+nnoremap <C-J> <C-W><C-J>
+    "Upper Window
+nnoremap <C-K> <C-W><C-K>
+    "Right window
+nnoremap <C-L> <C-W><C-L>
+    "Left window
+nnoremap <C-H> <C-W><C-H>
+
+"Useful shortcut 2. fold and unfold
+nnoremap <space> za
+
+"Useful shortcut 3. ESC key --> jj
+inoremap jj <ESC>
+
+"Keymap for functionality 
+nmap <F8> :NERDTree<CR>
+nmap <F9> :TlistToggle<CR>
+
+"Keymap for window sizing
+"Useful when using many windows at the same time
+nmap <S-F5> :vertical resize +5<CR>
+nmap <S-F6> :vertical resize -5<CR>
+nmap <S-F7> :resize +5<CR>
+nmap <S-F8> :resize -5<CR>
+
+"Keymap for syntax inspection
+"Python dedicated.
+autocmd FileType python map <buffer> <F3> :call Flake8()<CR>
+
+"Keymap for ENTER
+map <Enter> i<ENTER>
