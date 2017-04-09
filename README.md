@@ -15,6 +15,8 @@
 
 #### :file_folder: Contents
 > :orange_book: New version format(since 16/09/17. contains comments and written in English.)
+> - [character_frequency_graph_170409.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/character_frequency_graph_170409.py)
+> - [change_file_title_170407.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/change_file_title_170407.py)
 > - [huffman_compression_170406.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/huffman_compression_170406.py)
 > - [linked_array_170325.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/linked_array_170325.py)
 > - [sort_collections_170324.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/sort_collections_170324.py)
