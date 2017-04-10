@@ -3,18 +3,13 @@
 " Customized .vimrc file by Stonehead Park
 " Last update Date : 2017/04/10
 " Distribution is really appreciated.
-" Version : 1.1.0
+" Version : 1.1.1
 "
 " Last modified:
-"    1. Tab keymap added.
-"	Moved on to tab oriented interface.
-"	When you open a file, it is generally created in a new tab.
-"	Now split is not the only option.
-"	Tab related keymaps are below.
-"    2. Others..
-"    	Like prettifying the file,
-"   	GotoDefinition of ycm is now okay.
-"   	Fixed minor typos
+"     1. goto definition changed from ff -> fd
+"	: Definition should be implied in the command.
+"     2. Navigation through tabs now available in insert mode.
+"	: Added inoremap keys.
 "
 " * https://github.com/shoark7 *
 " * All rights are not reserved *
@@ -172,7 +167,7 @@ autocmd VimEnter * tab all
 """""""""""""""""""""""""""""""""""""""""""
 
 
-"Useful shortcut 1. Shifting through windows
+"Useful shortcut 1. Shifting through windows - clockwise
     "Next window
 nnoremap <C-W> <C-W><C-W>
     "Down window
@@ -209,7 +204,7 @@ autocmd FileType python map <buffer> <F3> :call Flake8()<CR>
 map <Enter> i<ENTER>
 
 "Go to definition keymap
-nnoremap ff :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap fd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 """ Tab keymaps.
 "Creating and deleting a tab
@@ -219,6 +214,8 @@ nnoremap tq :tabclose<CR>
 "Keymap for tab shifting
 nnoremap <F2> :tabprevious<CR>
 nnoremap <F3> :tabnext<CR>
+inoremap <F2> <ESC>:tabprevous<CR>
+inoremap <F3> <ESC>:tabnext<CR>
 
 "Shifting through tabs with tab numbers.
 nnoremap t1 1gt
