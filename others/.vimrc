@@ -3,12 +3,13 @@
 " Customized .vimrc file by Stonehead Park
 " Last update Date : 2017/04/10
 " Distribution is really appreciated.
-" Version : 1.1.2
+" Version : 1.1.3
 "
 " Last modified:
-"    1. Bug fix:
-"    	Navition to next tab key(F3) and flake key(F3) is duplicate.
-"    	Move flake8 key to F4.
+"     1. GoToDefinitionElseDeclaration
+"     	1) Python version that this functions looks for changed to 3.5
+"     	2) Definition file now pops up on a vertically splited window, not a
+"     	new tab
 "
 " * https://github.com/shoark7 *
 " * All rights are not reserved *
@@ -101,7 +102,8 @@ let g:flake8_quickfix_location="topleft" "Setting for flake8
 let g:ycm_server_keep_logfiles = 1
 let g:ycm_server_log_level = 'debug'
 let g:ycm_autoclose_preview_window_after_completion=1
-let g:ycm_goto_buffer_command = 'new-tab'
+let g:ycm_goto_buffer_command = 'vertical-split'
+let g:ycm_python_binary_path = '/home/sunghwanpark/.pyenv/shims/python3.5'
 
 "Setting for BadWhitespace
 highlight BadWhitespace ctermbg=red guibg=darkred
@@ -228,3 +230,10 @@ nnoremap t8 8gt
 nnoremap t9 9gt
 nnoremap t0 10gt
 """
+
+
+
+
+
+
+
