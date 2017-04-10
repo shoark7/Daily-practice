@@ -3,13 +3,12 @@
 " Customized .vimrc file by Stonehead Park
 " Last update Date : 2017/04/10
 " Distribution is really appreciated.
-" Version : 1.1.1
+" Version : 1.1.2
 "
 " Last modified:
-"     1. goto definition changed from ff -> fd
-"	: Definition should be implied in the command.
-"     2. Navigation through tabs now available in insert mode.
-"	: Added inoremap keys.
+"    1. Bug fix:
+"    	Navition to next tab key(F3) and flake key(F3) is duplicate.
+"    	Move flake8 key to F4.
 "
 " * https://github.com/shoark7 *
 " * All rights are not reserved *
@@ -198,7 +197,7 @@ nmap <S-F8> :resize -5<CR>
 
 "Keymap for syntax inspection
 "Python dedicated.
-autocmd FileType python map <buffer> <F3> :call Flake8()<CR>
+autocmd FileType python map <buffer> <F4> :call Flake8()<CR>
 
 "Keymap for ENTER
 map <Enter> i<ENTER>
