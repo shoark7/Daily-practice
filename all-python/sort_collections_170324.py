@@ -4,7 +4,7 @@ I'm writing a sort algorithm file in C for my assignment.
 This time, I write those algorithms in Python again.
 This file contains many kinds of sort algorithms like below:
 
-    "selection", "bubble", "insertion", "shell", "merge", "quick"
+    "selection", "bubble", "insertion", "shell", "merge", "quick", "radix"
 
 If you want to master sort algorithm and your most familiar language is Python,
 I think this might help you. Thanks a lot.
@@ -14,6 +14,7 @@ End date   : 2017/03/27
 """
 
 
+import math    # To calculate max digit
 import random  # For random test code
 
 
@@ -188,8 +189,79 @@ def quick_sort(t_list):
     return t_list
 
 
+# Radix sort
+def radix_sort(arr):
+    """
+    Radix sort implementation in Python.
+    ------------------------------------------------------------------------
+
+    Radix sort is very restrictive.
+    All numbers must be integers.
+    Also this version can't sort iters with negative values.
+    Additional coding is needed actually.
+
+
+    Neverthelss, this sort is really fast.
+        1. Don't have conditional statement.
+        2. Big O is dn(d is digit of max value of the list)
+
+    For the first time, I used queue module.
+
+    This version is not the end. I'll support negative integer sort one day.
+
+    ------------------------------------------------------------------------
+
+    :input:
+        arr: iterable to be sorted.
+             It needs to be changed and have order like lists.
+    :return:
+        address of the sorted iterable.
+
+    ------------------------------------------------------------------------
+    """
+    from queue import Queue
+
+    # input validation.
+    if not all(map(lambda x: isinstance(x, int) and x >= 0, arr)):
+        raise TypeError("Every elements in input should be integers and over 0")
+
+    # Make a queue to store on-going sorted list.
+    temp_queue = Queue(maxsize=len(arr))
+
+    for n in arr:
+        temp_queue.put(n)
+
+    max_value = max(arr)
+    max_digit = math.floor(math.log(max_value, 10)) + 1
+    # Get the max digit of the max value in the list.
+
+    try:
+        temp_list = [[[] for _ in range(10)] for _ in range(max_digit)]
+    except:
+        raise MemoryError("Memory is runned out")
+    # Radix sort gets much memory usage. Check if it makes MemoryError.
+
+    for d in range(max_digit):
+        while temp_queue.qsize():
+            value = temp_queue.get(block=False)
+            digit_num = (value % (10 ** (d + 1))) // (10 ** d)
+            temp_list[d][digit_num].append(value)
+        # for each digit of a number, drive the number to the place it belongs.
+
+        for i in range(10):
+            while temp_list[d][i]:
+                temp_queue.put(temp_list[d][i].pop(0))
+
+    arr.clear()
+    while not temp_queue.empty():
+        arr.append(temp_queue.get(block=False))
+
+    return arr
+
+
 if __name__ == '__main__':
-    test_list = [random.randint(1, 100) for _ in range(20)]
+    # test_list = [random.randint(1, 100) for _ in range(100)]
+    test_list = [str(random.randint(1, 100)) for _ in range(100)]
     print("Before sort : ", test_list)
-    quick_sort(test_list)
+    radix_sort(test_list)
     print("After  sort : ", test_list)
