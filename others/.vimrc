@@ -1,15 +1,13 @@
 """""""""""""""""""""""""""""""""""""""""""
 "
 " Customized .vimrc file by Stonehead Park
-" Last update Date : 2017/04/10
+" Last update Date : 2017/04/11
 " Distribution is really appreciated.
-" Version : 1.1.3
+" Version : 1.1.4
 "
 " Last modified:
-"     1. GoToDefinitionElseDeclaration
-"     	1) Python version that this functions looks for changed to 3.5
-"     	2) Definition file now pops up on a vertically splited window, not a
-"     	new tab
+"    1. keymap for trivial keys
+"    	: In insert mode, key has changed from 'jj:w' to 'ff'.
 "
 " * https://github.com/shoark7 *
 " * All rights are not reserved *
@@ -231,9 +229,11 @@ nnoremap t9 9gt
 nnoremap t0 10gt
 """
 
+"Save and quit in insert mode. Same as Shift ZZ.
+inoremap <S-Z>Z <ESC>:wq<CR>
 
-
-
-
-
-
+"Quick key map for 
+"  1. goto command mode
+"  2. save file
+"  3. return to insert mode
+inoremap ff <ESC>:w<CR>
