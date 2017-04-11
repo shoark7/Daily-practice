@@ -1,13 +1,19 @@
 """""""""""""""""""""""""""""""""""""""""""
 "
 " Customized .vimrc file by Stonehead Park
-" Last update Date : 2017/04/11
+" Last update Date : 2017/04/12
 " Distribution is really appreciated.
-" Version : 1.1.4
+" Version : 1.1.5
 "
 " Last modified:
-"    1. keymap for trivial keys
-"    	: In insert mode, key has changed from 'jj:w' to 'ff'.
+"    1. File save macro is added.
+"    	: File save before was ':w<ENTER>' and '<ESC>:w<ENTER>'.
+"    	  Also ESC is 'jj' to me and maximum keystroke number is 6.
+"    	  It's too expensive.
+"
+"    	  So file saving macro is unified in both normal and insert mode.
+"    	  It's '<SHIFT>FS' and it needs only 3 strokes.
+"    	  I hope my coding gets faster with this.
 "
 " * https://github.com/shoark7 *
 " * All rights are not reserved *
@@ -200,7 +206,7 @@ nmap <S-F8> :resize -5<CR>
 autocmd FileType python map <buffer> <F4> :call Flake8()<CR>
 
 "Keymap for ENTER
-map <Enter> i<ENTER>
+map <ENTER> i<ENTER>
 
 "Go to definition keymap
 nnoremap fd :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -232,8 +238,7 @@ nnoremap t0 10gt
 "Save and quit in insert mode. Same as Shift ZZ.
 inoremap <S-Z>Z <ESC>:wq<CR>
 
-"Quick key map for 
-"  1. goto command mode
-"  2. save file
-"  3. return to insert mode
-inoremap ff <ESC>:w<CR>
+"File Save in normal and insert mode.
+"added at v1.1.5
+nnoremap <S-F>S :w<CR>
+inoremap <S-F>S <ESC>:w<CR>
