@@ -16,6 +16,8 @@
 #### :file_folder: Contents
 * What I recommend are emphasized.
 > :orange_book: New version format(since 16/09/17. contains comments and written in English.)
+> - [to_radix_notation_170417.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/to_radix_notation_170417.py)
+> - **[nth_lucky_number_170417.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/nth_lucky_number_170417.py)**
 > - **[character_frequency_graph_170409.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/character_frequency_graph_170409.py)**
 > - [change_file_title_170407.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/change_file_title_170407.py)
 > - **[huffman_compression_170406.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/huffman_compression_170406.py)**
