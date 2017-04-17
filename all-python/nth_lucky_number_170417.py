@@ -47,7 +47,7 @@ def nth_lucky_number(nth):
 
     answer = ''.join(map(lambda x: '4' if x == '0' else '7', bin_format))
     # 0 is mapped to 4, 1 is mapped to 7.
-    # Python programmer is familiar with str.join, map, lambda is familiar.
+    # Python programmer is familiar with str.join, map, lambda.
 
     return int(answer)
 
