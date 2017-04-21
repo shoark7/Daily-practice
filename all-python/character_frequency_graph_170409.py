@@ -70,7 +70,7 @@ def freq_histogram(file_or_string):
     for n in range(0, height, 10):
         histogram[height-1-n][0] = '{char:^{digit}s}'.format(char=str(n), digit=max_digit)
 
-    histogram = '\n'.join([''.join(row) for row in histogram])
+    histogram = '\n'.join(''.join(row) for row in histogram)
 
     return histogram
 
