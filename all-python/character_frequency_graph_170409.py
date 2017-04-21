@@ -2,7 +2,7 @@
 
 In January 2016, I studied Java for a month.
 There was an challenging assignment to draw a graph with given sting.
-I remembered that qustion today, so I rewrote it in Python.
+I hit upon that qustion today, so I rewrote it in Python.
 I hope it would be much better than before.
 
 
