@@ -1,19 +1,17 @@
 """""""""""""""""""""""""""""""""""""""""""
 "
 " Customized .vimrc file by Stonehead Park
-" Last update Date : 2017/04/12
+" Last update Date : 2017/04/27
 " Distribution is really appreciated.
-" Version : 1.1.5
+" Version : 1.1.6
 "
 " Last modified:
-"    1. File save macro is added.
-"    	: File save before was ':w<ENTER>' and '<ESC>:w<ENTER>'.
-"    	  Also ESC is 'jj' to me and maximum keystroke number is 6.
-"    	  It's too expensive.
-"
-"    	  So file saving macro is unified in both normal and insert mode.
-"    	  It's '<SHIFT>FS' and it needs only 3 strokes.
-"    	  I hope my coding gets faster with this.
+" 	1. Updated new feature using marks.
+" 	  : You can use marking in vim with shortcut 'm{a..zA..Z}'
+" 	    When saving a file with my shortcut 'Shift FS',
+" 	    now new mark denoted with 'a' is automatically made,
+" 	    so you can jump to the last updated position directly.
+" 	    I think this would be useful.
 "
 " * https://github.com/shoark7 *
 " * All rights are not reserved *
@@ -240,5 +238,5 @@ inoremap <S-Z>Z <ESC>:wq<CR>
 
 "File Save in normal and insert mode.
 "added at v1.1.5
-nnoremap <S-F>S :w<CR>
-inoremap <S-F>S <ESC>:w<CR>
+nnoremap <S-F>S :w<CR>ma
+inoremap <S-F>S <ESC>:w<CR>ma
