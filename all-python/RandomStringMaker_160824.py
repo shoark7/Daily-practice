@@ -12,7 +12,7 @@ def random_string_maker():
     for i in range(string_length):
         result += random.choice(english_and_numbers)
         if i == string_length - 1 and result.isnumeric():
-            random_string_maker()
+            result = random_string_maker()
 
     return result
 
@@ -28,7 +28,7 @@ for i in range(1,11):
 # dict comprehension을 통해서 말입니다.
 
 int_length_dict = {}
-int_length_dict = {int:len(string) for int, string in int_string_dict.items()}
+int_length_dict = {n:len(s) for n, s in int_string_dict.items()}
 
 # 완성되었습니다. 결과를 확인해보겠습니다.
 for key, value in int_length_dict.items():
