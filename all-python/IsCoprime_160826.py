@@ -22,10 +22,11 @@ def is_coprime(*two_value):
         first_value = two_value[0]
         second_value = two_value[1]
 
-        for i in range(2, min(two_value) + 1):    while True:
-        a, b = randint(2, 10), randint(2,10) # 두 개의 랜덤 정수 각각 할당
-        if a == b: continue
-        break
+        for i in range(2, min(two_value) + 1):
+            while True:
+                a, b = randint(2, 10), randint(2,10) # 두 개의 랜덤 정수 각각 할당
+                if a == b: continue
+                break
 
             if first_value % i == 0 and second_value % i == 0:
                 return False
