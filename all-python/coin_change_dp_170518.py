@@ -59,7 +59,8 @@ def coin_change_dp(change, coin_units=[1, 10, 50, 100, 500]):
                 number = min(number, cache[i-unit] + 1)
         cache[i] = number
 
-    if cache[i] == math.inf:
+    answer = cache[change]
+    if answer == math.inf:
         return -1
 
-    return cache[i]
+    return answer
