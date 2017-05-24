@@ -16,7 +16,7 @@ class List_graph:
     """Basic graph form implemented by list
 
     Throught methods, you can find variable name 'noi'
-    'noi' means "Name of index", you can insert vertex's name or its number.
+    'noi' means "Name of index", you can insert either vertex's name or its number.
     """
 
     def __init__(self, max_number, directed=False):
@@ -135,3 +135,16 @@ class List_graph:
         for row in self._graph:
             row.extend([0 for _ in range(n)])
         self._graph.extend([[0 for _ in range(self._max_size)] for _ in range(n)])
+        self._names.extend(['' for _ in range(n)])
+
+    def show_graph(self):
+        if not self._directed:
+            for i in range(self._vertex_n):
+                print("{} is connected to : ".format(self._names[i]), end='')
+                vertices = self.adjacent(i)
+                for j in vertices:
+                    print('{} '.format(self._names[j]), end='')
+                print()
+        else:
+            for i in range(self._vertex_n):
+                print("Vertex {}".format(self._names(i))
