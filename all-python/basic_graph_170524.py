@@ -7,11 +7,11 @@ It's like an web, with vertices and edges.
 I implement graph with class and basic functions like traversal.
 
 Start date : 2017/05/24
-End date   : 2017/?????
+End date   : 2017/05/25
 """
 
 
-# Basic implementation 1. with list
+##### Basic implementation 1. with list
 class List_graph:
     """Basic graph form implemented by list
     List has vertices and edges. Vertices are like a point or a node,
