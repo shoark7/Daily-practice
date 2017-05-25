@@ -176,11 +176,22 @@ class List_graph:
         return self._vertex_n
 
     def insert_vertex(self, name):
+        """Insert an vertex
+
+        My graph's vertex must have its name.
+        So name is required. Also duplicate ones are not permitted.
+
+        :input:
+            name : Vertex's name. Any input will be translateed to string.
+        :return:
+            None. Just a new vertex is made.
+        """
         if name in self._names:
             print("Same name is registered. Try with another name.")
             return
         if self.index == self._max_size:
             print("graph size is full. Maybe you should enlarge graph size.")
+            return
         self._names[self.index] = str(name)
         self._vertex_n += 1
 
