@@ -28,7 +28,7 @@ class List_graph:
         _vertex_n : Number of current vertices
         _edge_n   : Number of current edges between vertices
     """
-    def __init__(self, max_number, directed=False):
+    def __init__(self, max_number, directed=False, *, weight=False):
         """Initialize a graph.
         You decide the size of the graph.
         You can choose graph is either a direted or undirected graph.
@@ -97,7 +97,7 @@ class List_graph:
             return
 
         for i in range(self._vertex_n):
-            if self._graph[noi][i] == 1:
+            if self._graph[noi][i] != 0:
                 vertices += [i]
         return vertices
 
@@ -195,7 +195,7 @@ class List_graph:
         self._names[self.index] = str(name)
         self._vertex_n += 1
 
-    def insert_edge(self, noi1, noi2):
+    def insert_edge(self, noi1, noi2, weight=1):
         """Insert an edge
 
         It's an opposite action against delete_edge
@@ -215,11 +215,11 @@ class List_graph:
             print("Given nois are not valid. Please check")
             return
         if self._directed and not self._graph[noi1][noi2]:
-            self._graph[noi1][noi2] = 1
+            self._graph[noi1][noi2] = weight
             changed = True
         elif not self._directed and not self._graph[noi1][noi2]:
-            self._graph[noi2][noi1] = 1
-            self._graph[noi1][noi2] = 1
+            self._graph[noi2][noi1] = weight
+            self._graph[noi1][noi2] = weight
             changed = True
         if changed:
             self._edge_n += 1
