@@ -5,7 +5,7 @@
 
 """
 
-
+import math
 from basic_graph_170524 import List_graph
 
 
@@ -113,19 +113,57 @@ class _Queue:
         return True if self.length == 0 else False
 
 
-if __name__ == '__main__':
-    g = List_graph(10)
-    for i in range(7):
-        g.insert_vertex(chr(i+65))
-    g.insert_edge('A', 'B')
-    g.insert_edge('A', 'C')
-    g.insert_edge('B', 'D')
-    g.insert_edge('B', 'E')
-    g.insert_edge('C', 'E')
-    g.insert_edge('D', 'G')
-    g.insert_edge('E', 'G')
-    g.insert_edge('F', 'G')
+def shortest_path_dijkstra(graph, start, end):
+    try:
+        start = graph._noi_to_index(start)
+        end = graph._noi_to_index(end)
+    except:
+        raise IndexError("You gave wrong names")
 
-    breadth_first_search(g, 'A')
-    print(is_cycle(g, 'A', 'E'))
-    print()
+    distances = [math.inf for _ in range(graph.index)]
+    distances[start] = 0
+    checked = [0 for _ in range(graph.index)]
+    checked[start] = 1
+
+    def get_checked_vertices():
+        return [i for i, n in enumerate(checked) if n == 1]
+
+    for i in range(graph.index-1):
+        checked_vertices = get_checked_vertices()
+        temp_index = 0
+        temp_dist = math.inf
+        for v in checked_vertices:
+            neighbors = graph.adjacent(v)
+            for neighbor in neighbors:
+                if distances[v] + graph._graph[v][neighbor] < temp_dist and checked[neighbor] == 0:
+                    temp_dist = distances[v] + graph._graph[v][neighbor]
+                    temp_index = neighbor
+        distances[temp_index] = temp_dist
+        checked[temp_index] = 1
+    return distances[end]
+
+
+if __name__ == '__main__':
+    g = List_graph(10, False, weight=False)
+    for i in range(10):
+        g.insert_vertex(chr(i+65))
+    g.insert_edge('A', 'B', 15)
+    g.insert_edge('A', 'D', 12)
+    g.insert_edge('B', 'C', 21)
+    g.insert_edge('B', 'G', 7)
+    g.insert_edge('C', 'H', 25)
+    g.insert_edge('D', 'F', 10)
+    g.insert_edge('D', 'E', 4)
+    g.insert_edge('E', 'F', 3)
+    g.insert_edge('E', 'I', 13)
+    g.insert_edge('F', 'G', 10)
+    g.insert_edge('G', 'H', 19)
+    g.insert_edge('G', 'J', 9)
+    g.insert_edge('I', 'J', 15)
+    g.insert_edge('J', 'H', 15)
+
+    print(shortest_path_dijkstra(g, 'A', 'J'))
+    print(shortest_path_dijkstra(g, 'A', 'G'))
+    print(shortest_path_dijkstra(g, 'A', 'H'))
+    print(shortest_path_dijkstra(g, 'A', 'I'))
+    print(shortest_path_dijkstra(g, 'A', 'B'))
