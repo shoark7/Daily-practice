@@ -11,7 +11,7 @@ exact nth lucky number. I got onto the next level of my coding capability.
 Start date : 2017/04/17
 End date   : 2017/04/17
 """
-
+asdfasdf
 
 def nth_lucky_number(nth):
     """Get nth lucky number.

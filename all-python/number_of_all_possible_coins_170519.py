@@ -55,7 +55,7 @@ def coin_change_max_noc(change, coin_units):
 
 # insung151's awesome code
 ## Took 92 ms in baekjoon online judge
-def coin_change_max_noc_insung_ver(change, coin_units):
+def coin_change_max_noc_insung_ver(change, coin_uni0ts):
     cache = [0 for _ in range(change+1)]
     cache[0] = 1
 
