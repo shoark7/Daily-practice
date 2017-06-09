@@ -16,6 +16,8 @@
 #### :file_folder: Contents
 * What I recommend are emphasized.
 > :orange_book: New version format(since 16/09/17. contains comments and written in English.)
+> - **[graph_methods_170608.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/graph_methods_170608.py)**
+> - **[basic_graph_170524.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/basic_graph_170524.py)**
 > - [number_of_all_possible_coins_170519.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/number_of_all_possible_coins_170519.py)
 > - [coin_change_dp_170518.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/coin_change_dp_170518.py)
 > - [fizzbuzz_optimal_170503.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/fizzbuzz_optimal_170503.py)
