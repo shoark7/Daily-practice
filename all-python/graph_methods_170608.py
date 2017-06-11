@@ -230,29 +230,28 @@ def tsp_backtracking(graph, noi):
     Code means a lot to me. I learned a lot.
 
     :input:
-        noi: A name or an index of vertex that starts
+        noi: A vetex that the trip starts from
     :return:
         None. This funtions prints 1. Best route and 2. its distance
     """
     try:
         noi = graph._noi_to_index(noi)
     except:
-        raise ValueError("Graph doesn't have that vertex")
-
-    tour_route_trigger = [noi]
-    best_solution = (tour_route_trigger, math.inf)
+        raise ValueError("A valid vertex")
+    else:
+        tour_route_trigger = [noi]
+        best_solution = (tour_route_trigger, math.inf)
 
     def is_route_complete(tour_route):
         """Helper function that checks if given route is complete or not
 
         Backtracking method checks every possible route it encounters.
-        This function checks if given route is complete or need more vertices.
+        This function checks if given route is complete or needs more vertices.
         It checks 3 things.
             1. First element of vertex is given noi
             2. Last element of vertex is given noi
-            3. Length of the route == to length of the graph + 1
+            3. Length of the route equals to length of the graph + 1
                Because TSP returns to the starting point with visiting all other vertices once
-
         :input:
             tour_route : A list containing vertices. It is a part of a complete route
         :return:
@@ -298,6 +297,7 @@ def tsp_backtracking(graph, noi):
     for v in best_solution[0]:
         print(graph._names[v], end=' ')
     print('\nLeast distance is {}'.format(best_solution[1]))
+    print()
 
 
 # Test code!!
@@ -344,4 +344,4 @@ if __name__ == '__main__':
     g.insert_edge('C', 'E', 1)
     g.insert_edge('D', 'E', 9)
 
-    breadth_first_search(g, 'A')
+    tsp_backtracking(g, 'A')
