@@ -69,7 +69,7 @@ def depth_first_search(graph, noi):
     """Depth first search algorithm with recursive call
 
     DFS can be done with 2 ways: stack & recursive call.
-    I used recursive call because I didn't want to implement queue once again..
+    I used recursive call because I didn't want to implement stack once again..
     This traversal prints vertex's name it visits.
 
     :input:
@@ -109,29 +109,24 @@ def breadth_first_search(graph, noi):
     :return:
         None. Just print out the vertices
     """
+    try:
+        noi = graph._noi_to_index(noi)
+    except:
+        raise ValueError("Given index is not valid")
+
     visited = [0 for _ in range(graph.index)]
     queue = _Queue(graph.index ** 2)
+    queue.enqueue(noi)
 
-    def search(graph, noi):
-        """Traversal function using _Queue"""
-        try:
-            noi = graph._noi_to_index(noi)
-        except:
-            print('Given index sucks')
-            return
-
-        queue.enqueue(noi)
-
-        while not queue.is_empty():
-            l = queue.dequeue()
-            if visited[l] == 0:
-                print('{} '.format(graph._names[l]), end='')
-                visited[l] = 1
-                adj = graph.adjacent(l)
-                for n in adj:
-                    if visited[n] == 0:
-                        queue.enqueue(n)
-    search(graph, noi)
+    while not queue.is_empty():
+        l = queue.dequeue()
+        if visited[l] == 0:
+            print('{} '.format(graph._names[l]), end='')
+            visited[l] = 1
+            adj = graph.adjacent(l)
+            for n in adj:
+                if visited[n] == 0:
+                    queue.enqueue(n)
 
 
 class _Queue:
@@ -349,4 +344,4 @@ if __name__ == '__main__':
     g.insert_edge('C', 'E', 1)
     g.insert_edge('D', 'E', 9)
 
-    tsp_backtracking(g, 'A')
+    breadth_first_search(g, 'A')

@@ -18,20 +18,29 @@ class List_graph:
     edges are like a line.
 
     Throught methods, you can find variable name 'noi'
-    'noi' means "Name of index", you can insert either vertex's name or its number.
+    'noi' means "'Name or index' of a vertex", you can insert either vertex's name or its number.
 
     Attributes:
-        _max_size : Max size of the graph
-        _graph    : List implementation of the graph
-        _names    : A list of vertices' names
         _directed : Bool. True : directed, False : undirected
-        _vertex_n : Number of current vertices
         _edge_n   : Number of current edges between vertices
+        _graph    : List implementation of the graph
+        _max_size : Max size of the graph
+        _names    : A list of vertices' names
+        _vertex_n : Number of current vertices
+        index     : PROPERTY, get _vertex_n.
+    Methods:
+        _noi_to_index : Change vertex name to index for other methods
+        adjacent      : Get adjacent veteices of a vertex
+        delete_edge   : Delete a edge
+        delete_vertex : Delelte a vertex
+        insert_edge   : Insert an edge between 2 vertices
+        insert_vertex : Insert a new vertex
+        show_graph    : Show vertices and its adjacent vertices
     """
     def __init__(self, max_number, directed=False, *, weight=False):
         """Initialize a graph.
         You decide the size of the graph.
-        You can choose graph is either a direted or undirected graph.
+        You can choose graph is either a direted or an undirected graph.
         Default is an undirected graph.
 
         :input:
@@ -53,10 +62,12 @@ class List_graph:
 
     def __str__(self):
         return "{} graph with {} vertices and {} edges".format(
-            'A directed' if self._directed else 'An undirected', self.index, self._edge_n)
+            'A directed' if self._directed else 'An undirected',
+            self.index, self._edge_n)
 
     def _noi_to_index(self, noi):
         """Change noi string form to integer
+
         Every vertex here has its name and its id number.
         For methods like traversal, name format should be changed to id format.
         It changes string name to id. If given noi is number format, just return it.
@@ -82,10 +93,10 @@ class List_graph:
 
         With given noi,
         this method returns a list of adjacent vertices.
-        Element of the list is id of vertices.
+        Element of the list is ids of vertices.
 
         :input:
-            noi. A vertex's number noi
+            noi. A vertex's name or index
         :return:
             A list of adjacent vertices
         """
@@ -96,7 +107,7 @@ class List_graph:
             print("Given noi is not valid")
             return
 
-        for i in range(self._vertex_n):
+        for i in range(self.index):
             if self._graph[noi][i] != 0:
                 vertices += [i]
         return vertices
@@ -104,16 +115,15 @@ class List_graph:
     def delete_edge(self, noi1, noi2):
         """Delete an edge
 
-        An edge is affiliated with 2 vertices.
-        This function delete a edge between 2 vertices
+        An edge is affiliated between 2 vertices.
+        This function deletes an edge between 2 vertices
         If the edge doesn't exist, nothing happenes
 
         :input:
             noi1
             noi2
-            2 noi of vertices
         :return:
-            None
+            None. Just delete the edge if it is valid
         """
         changed = False
         try:
@@ -139,14 +149,18 @@ class List_graph:
         """Delete a vertex in a graph
 
         This job is somewhat complicated.
-        code checking is recommeneded
+        code checking is recommended
 
         :input:
             noi: Vertex noi to be deleted
         :return:
             None. Just delete the vertex
         """
-        noi = self._noi_to_index(noi)
+        try:
+            noi = self._noi_to_index(noi)
+        except:
+            raise ValueError("Not a valid vertex")
+
         self._vertex_n -= 1
         if self._directed:
             self._edge_n -= sum(self._graph[noi]) + sum(self._graph, key=lambda x: x[noi])
@@ -154,9 +168,13 @@ class List_graph:
                 self._edge_n += 1
         else:
             self._edge_n -= sum(self._graph[noi])
+
         for row in self._graph:
             row.pop(noi)
+
         self._graph.pop(noi)
+        for row in self._graph:
+            row.pop(noi)
         self._names.pop(noi)
 
     @property
@@ -164,7 +182,7 @@ class List_graph:
         """Number of vertices in a graph
 
         This is a property of _vertex_n
-        I use thisn because checking vertices' number is often
+        I use this because checking vertices' number is oftenly used for other functions
         and _vertex_n is not that visual.
         You can check the number of vertices
 
@@ -174,26 +192,6 @@ class List_graph:
             Int. Number of vertices in a graph
         """
         return self._vertex_n
-
-    def insert_vertex(self, name):
-        """Insert an vertex
-
-        My graph's vertex must have its name.
-        So name is required. Also duplicate ones are not permitted.
-
-        :input:
-            name : Vertex's name. Any input will be translateed to string.
-        :return:
-            None. Just a new vertex is made.
-        """
-        if name in self._names:
-            print("Same name is registered. Try with another name.")
-            return
-        if self.index == self._max_size:
-            print("graph size is full. Maybe you should enlarge graph size.")
-            return
-        self._names[self.index] = str(name)
-        self._vertex_n += 1
 
     def insert_edge(self, noi1, noi2, weight=1):
         """Insert an edge
@@ -226,6 +224,26 @@ class List_graph:
         else:
             print("Edge already exsits. Return..")
 
+    def insert_vertex(self, name):
+        """Insert an vertex
+
+        My graph's vertex must have its name.
+        So name is required. Also duplicate ones are not permitted.
+
+        :input:
+            name : Vertex's name. Any input will be translateed to string.
+        :return:
+            None. Just a new vertex is made.
+        """
+        if name in self._names:
+            print("Same name is registered. Try with another name.")
+            return
+        if self.index == self._max_size:
+            print("graph size is full. Maybe you should enlarge graph size.")
+            return
+        self._names[self.index] = str(name)
+        self._vertex_n += 1
+
     def is_empty(self):
         """Check if the graph is empty or not
 
@@ -252,7 +270,7 @@ class List_graph:
         :return:
             None. Just size up the graph
         """
-        if not isinstance(n, int) or n > 0:
+        if not isinstance(n, int) or n <= 0:
             raise ValueError("Give me an integer over 0")
         self._max_size += n
         for row in self._graph:
