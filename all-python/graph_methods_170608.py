@@ -198,11 +198,11 @@ def shortest_path_dijkstra(graph, start, end):
         end = graph._noi_to_index(end)
     except:
         raise IndexError("You gave wrong names")
-
-    distances = [math.inf for _ in range(graph.index)]
-    distances[start] = 0
-    checked = [0 for _ in range(graph.index)]
-    checked[start] = 1
+    else:
+        distances = [math.inf for _ in range(graph.index)]
+        distances[start] = 0
+        checked = [0 for _ in range(graph.index)]
+        checked[start] = 1
 
     def get_checked_vertices():
         """Return fixed vertices of a path"""
