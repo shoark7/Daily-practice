@@ -203,23 +203,22 @@ def shortest_path_dijkstra(graph, start, end):
         distances[start] = 0
         checked = [0 for _ in range(graph.index)]
         checked[start] = 1
-
-    def get_checked_vertices():
-        """Return fixed vertices of a path"""
-        return [i for i, n in enumerate(checked) if n == 1]
+        min_v = start
 
     for i in range(graph.index-1):
-        checked_vertices = get_checked_vertices()
-        temp_index = 0
+        neighbors = graph.adjacent(min_v)
+        for neighbor in neighbors:
+            if distances[min_v] + graph._graph[min_v][neighbor] < distances[neighbor]\
+               and checked[neighbor] != 1:
+                distances[neighbor] = distances[min_v] + graph._graph[min_v][neighbor]
+
         temp_dist = math.inf
-        for v in checked_vertices:
-            neighbors = graph.adjacent(v)
-            for neighbor in neighbors:
-                if distances[v] + graph._graph[v][neighbor] < temp_dist and checked[neighbor] == 0:
-                    temp_dist = distances[v] + graph._graph[v][neighbor]
-                    temp_index = neighbor
-        distances[temp_index] = temp_dist
-        checked[temp_index] = 1
+
+        for i in range(graph.index):
+            if checked[i] == 0 and distances[i] < temp_dist:
+                min_v = i
+                temp_dist = distances[i]
+        checked[min_v] = 1
     return distances[end]
 
 
@@ -304,7 +303,7 @@ def tsp_backtracking(graph, noi):
 if __name__ == '__main__':
     g = List_graph(10, False, weight=True)
     # For shortest_path_dijkstra
-    """
+    
     for i in range(10):
         g.insert_vertex(chr(i+65))
     g.insert_edge('A', 'B', 15)
@@ -320,15 +319,15 @@ if __name__ == '__main__':
     g.insert_edge('G', 'H', 19)
     g.insert_edge('G', 'J', 9)
     g.insert_edge('I', 'J', 15)
-    g.insert_edge('J', 'H', 15)
+    g.insert_edge('J', 'H', 6)
 
-    print(shortest_path_dijkstra(g, 'A', 'J'))
-    print(shortest_path_dijkstra(g, 'A', 'G'))
-    print(shortest_path_dijkstra(g, 'A', 'H'))
-    print(shortest_path_dijkstra(g, 'A', 'I'))
-    print(shortest_path_dijkstra(g, 'A', 'B'))
-    """
-
+    print('A to J is', shortest_path_dijkstra(g, 'A', 'J'))
+    print('A to G is', shortest_path_dijkstra(g, 'A', 'G'))
+    print('A to H is', shortest_path_dijkstra(g, 'A', 'H'))
+    print('A to I is', shortest_path_dijkstra(g, 'A', 'I'))
+    print('A to B is', shortest_path_dijkstra(g, 'A', 'B'))
+    
+"""
     # For tsp_backtracking
     for i in range(5):
         g.insert_vertex(chr(i+65))
@@ -345,3 +344,4 @@ if __name__ == '__main__':
     g.insert_edge('D', 'E', 9)
 
     tsp_backtracking(g, 'A')
+"""
