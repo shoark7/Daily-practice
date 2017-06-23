@@ -1,7 +1,7 @@
 """Convert ip address to a 32 bit integer and vice versa
 
 This function only supports ip 4.
-6 is not included.
+6 is not supported.
 
 Bit unit computation is squaring a circle to me.
 Before pioneering the C way to do this,
@@ -19,7 +19,7 @@ I'll make this function in a more efficient way
     Let's go
 
 Start date : 2017/06/22
-End date   : 2017/06/22
+End date   : 2017/06/23
 """
 
 
@@ -85,6 +85,10 @@ def ip_to_integer(ip):
     """
     value = ''
     ip = ip.split('.')
+    if len(ip) != 4:
+        raise ValueError("You should give me a 4 nibbles chained with '.'")
+    elif not all(map(lambda x: x.isnumeric() and 0 <= int(x) <= 255, ip)):
+        raise ValueError("Each nibble should be an integer between from 0 to 255")
 
     for byte in ip:
         value += _to_binary(byte, 8)
@@ -105,8 +109,14 @@ def integer_to_ip(integer):
     :return:
         str. ip address like '255.255.255.1'
     """
-    if not (isinstance(integer, int) and 0 <= integer <= 4294967295):
-        raise ValueError("Integer should be int type and between 0 to 4294967295")
+    try:
+        integer = int(integer)
+    except:
+        raise ValueError("You should give me a value that can be a int")
+    else:
+        if not 0 <= integer <= 4294967295:
+            raise ValueError("Integer should be int type and between 0 to 4294967295")
+
     ip_bytes = []
     for _ in range(4):
         integer, residual = divmod(integer, 256)
