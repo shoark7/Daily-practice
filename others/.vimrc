@@ -1,17 +1,15 @@
 """""""""""""""""""""""""""""""""""""""""""
 "
 " Customized .vimrc file by Stonehead Park
-" Last update Date : 2017/04/27
+" Last update Date : 2017/07/01
 " Distribution is really appreciated.
-" Version : 1.1.6
+" Version : 1.1.7
 "
 " Last modified:
-" 	1. Updated new feature using marks.
-" 	  : You can use marking in vim with shortcut 'm{a..zA..Z}'
-" 	    When saving a file with my shortcut 'Shift FS',
-" 	    now new mark denoted with 'a' is automatically made,
-" 	    so you can jump to the last updated position directly.
-" 	    I think this would be useful.
+" 	1. Install Emmet.vim
+" 	  - It is a vim plugin for emmet, famous html expander
+" 	2. Keymap for Emmet.vim is added.
+" 	  - Exansion keymap is changed from <c-y>, to <c-e>
 "
 " * https://github.com/shoark7 *
 " * All rights are not reserved *
@@ -78,6 +76,7 @@ Plugin 'jnurmine/Zenburn'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'kien/ctrlp.vim'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'Emmet.vim'
 
 "Non plugin settings after this line.
 if has('gui_running')
@@ -240,3 +239,8 @@ inoremap <S-Z>Z <ESC>:wq<CR>
 "added at v1.1.5
 nnoremap <S-F>S :w<CR>ma
 inoremap <S-F>S <ESC>:w<CR>ma
+
+
+"Key map for Emmet.vim
+"" Keymap for expansion # 1.1.7
+let g:user_emmet_expandabbr_key = '<c-e>'
