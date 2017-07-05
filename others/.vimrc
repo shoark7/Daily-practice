@@ -1,15 +1,16 @@
 """""""""""""""""""""""""""""""""""""""""""
 "
 " Customized .vimrc file by Stonehead Park
-" Last update Date : 2017/07/01
+" Last update Date : 2017/07/05
 " Distribution is really appreciated.
-" Version : 1.1.7
+" Version : 1.2.0
 "
 " Last modified:
-" 	1. Install Emmet.vim
-" 	  - It is a vim plugin for emmet, famous html expander
-" 	2. Keymap for Emmet.vim is added.
-" 	  - Exansion keymap is changed from <c-y>, to <c-e>
+" 	1. Install surround.vim
+" 	  - It is a powerful plugin useful for many languages
+" 	2. Keymap for surround.vim is added
+" 	  - Keymap for django templates are added
+" 	  - like {% if %}, {% for %}, {{ }}, {% url %} is easily added now.
 "
 " * https://github.com/shoark7 *
 " * All rights are not reserved *
@@ -244,3 +245,11 @@ inoremap <S-F>S <ESC>:w<CR>ma
 "Key map for Emmet.vim
 "" Keymap for expansion # 1.1.7
 let g:user_emmet_expandabbr_key = '<c-e>'
+
+
+"Key map for surround.vim
+""" Keymap for django jinja template # 1.2.0
+let g:surround_{char2nr("i")} = "{% if \r %}\n\n{% endif %}"
+let g:surround_{char2nr("f")} = "{% for \r %}\n\n{% endfor %}"
+let g:surround_{char2nr("v")} = "{{ \r }}"
+let g:surround_{char2nr("u")} = "{% url %}"
