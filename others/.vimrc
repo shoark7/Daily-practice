@@ -88,6 +88,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'Emmet.vim'
 Plugin 'AutoClose'
+Plugin 'surround.vim'
 
 "Non plugin settings after this line.
 if has('gui_running')
