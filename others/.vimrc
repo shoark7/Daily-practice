@@ -3,23 +3,15 @@
 " Customized .vimrc file by Stonehead Park
 " Last update Date : 2017/07/05
 " Distribution is really appreciated.
-" Version : 1.3.0
+" Version : 1.3.1
 "
 " Last modified:
-" 	1. Install AutoClose plugin
-" 	  - It is a plugin for auto closing counterpar
-" 	    like '', "", (), [], {}
-" 	  - But needs more customization for multiple line coverage
-" 	    For example, my final goal is
+" 	1. Add some django template surround keymaps
+"	  - In django jinja2 templates, {% %}, {{ }} is open used.
+"	  - So keymap for this added.
+"         - Also tags like 'if', 'for', 'comment' need ending tags additionaly
+"	  - These kind of tags followed by ending tags are added first.
 "
-" 	    l = [
-"		|    * '|' is curor
-" 	    ]
-"
-" 	    but now
-"
-" 	    l = [
-" 	    |]
 "
 " * https://github.com/shoark7 *
 " * All rights are not reserved *
@@ -261,6 +253,9 @@ let g:user_emmet_expandabbr_key = '<c-e>'
 "Key map for surround.vim
 """ Keymap for django jinja template # 1.2.0
 let g:surround_{char2nr("i")} = "{% if \r %}\n\n{% endif %}"
+let g:surround_{char2nr("I")} = "{% if \r %}\n\n{% elif %}\n\n{% else %}\n\n{% endif %}"
 let g:surround_{char2nr("f")} = "{% for \r %}\n\n{% endfor %}"
-let g:surround_{char2nr("v")} = "{{ \r }}"
-let g:surround_{char2nr("u")} = "{% url \r %}"
+let g:surround_{char2nr("F")} = "{% for \r %}\n\n{% emtpy %}\n\n{% endfor %}"
+let g:surround_{char2nr("b")} = "{{ \r }}"
+let g:surround_{char2nr("p")} = "{% \r %}"
+let g:surround_{char2nr("c")} = "{% comment \r %}\n\n{% endcomment %}"
