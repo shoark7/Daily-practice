@@ -3,14 +3,23 @@
 " Customized .vimrc file by Stonehead Park
 " Last update Date : 2017/07/05
 " Distribution is really appreciated.
-" Version : 1.2.0
+" Version : 1.3.0
 "
 " Last modified:
-" 	1. Install surround.vim
-" 	  - It is a powerful plugin useful for many languages
-" 	2. Keymap for surround.vim is added
-" 	  - Keymap for django templates are added
-" 	  - like {% if %}, {% for %}, {{ }}, {% url %} is easily added now.
+" 	1. Install AutoClose plugin
+" 	  - It is a plugin for auto closing counterpar
+" 	    like '', "", (), [], {}
+" 	  - But needs more customization for multiple line coverage
+" 	    For example, my final goal is
+"
+" 	    l = [
+"		|    * '|' is curor
+" 	    ]
+"
+" 	    but now
+"
+" 	    l = [
+" 	    |]
 "
 " * https://github.com/shoark7 *
 " * All rights are not reserved *
@@ -78,6 +87,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'kien/ctrlp.vim'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'Emmet.vim'
+Plugin 'AutoClose'
 
 "Non plugin settings after this line.
 if has('gui_running')
@@ -252,4 +262,4 @@ let g:user_emmet_expandabbr_key = '<c-e>'
 let g:surround_{char2nr("i")} = "{% if \r %}\n\n{% endif %}"
 let g:surround_{char2nr("f")} = "{% for \r %}\n\n{% endfor %}"
 let g:surround_{char2nr("v")} = "{{ \r }}"
-let g:surround_{char2nr("u")} = "{% url %}"
+let g:surround_{char2nr("u")} = "{% url \r %}"
