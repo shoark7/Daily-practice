@@ -3,10 +3,12 @@
 " Customized .vimrc file by Stonehead Park
 " Last update Date : 2017/07/08
 " Distribution is really appreciated.
-" Version : 1.3.2
+" Version : 1.3.3
 "
 " Last modified:
-" 	Changed NERDtreeWidth from 31 to 23.
+" 	Changed default setting for nerdtree
+" 	  1. Nerdtree opens when opening a dir, not for a file.
+"	  2. Nerdtree now shows hidden files.
 "
 "
 " * https://github.com/shoark7 *
@@ -90,6 +92,9 @@ endif
 "Window settings like positions of each window
 let NERDTreeWinPos = "left"
 let g:NERDTreeWinSize=23  "Set default tree width from 31 to 23. Added at v.1.3.2
+let NERDTreeQuitOnOpen=1  "Set NerdTree to open on default at dir, not open at file v.1.3.3
+let NERDTreeShowHidden=1  "Set to show hidden files at nerdtree
+autocmd VimEnter * NERDTree
 let Tlist_Ctags_Cmd = "/usr/bin/ctags"
 let Tlist_Inc_Winwidth = 0
 let Tlist_Exit_OnlyWindow = 0
