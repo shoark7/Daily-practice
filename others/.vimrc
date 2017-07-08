@@ -3,13 +3,12 @@
 " Customized .vimrc file by Stonehead Park
 " Last update Date : 2017/07/08
 " Distribution is really appreciated.
-" Version : 1.3.3
+" Version : 1.4.0
 "
 " Last modified:
-" 	Changed default setting for nerdtree
-" 	  1. Nerdtree opens when opening a dir, not for a file.
-"	  2. Nerdtree now shows hidden files.
-"
+"	1. Installed 'nerdcommenter', a comment plugin for many languages.
+"	  - This plugin works many languages including java, python, c
+"	  - Multiple line commenting is also suppored and many good settings
 "
 " * https://github.com/shoark7 *
 " * All rights are not reserved *
@@ -79,6 +78,7 @@ Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'Emmet.vim'
 Plugin 'AutoClose'
 Plugin 'surround.vim'
+Plugin 'scrooloose/nerdcommenter'
 
 "Non plugin settings after this line.
 if has('gui_running')
@@ -168,6 +168,9 @@ call togglebg#map("<F5>")
 autocmd VimEnter * tab all
 "autocmd BufAdd * exe 'tablast | tabe "' . expand( "<afile") .'"'
 
+"Setting for scroolose/nerdcommenter. At v.1.4.0
+""" This plugin is a handy commenter for all languages
+let g:NERDDefaultAlign = 'left'
 
 
 """""""""""""""""""""""""""""""""""""""""""
