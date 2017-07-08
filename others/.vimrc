@@ -1,16 +1,12 @@
 """""""""""""""""""""""""""""""""""""""""""
 "
 " Customized .vimrc file by Stonehead Park
-" Last update Date : 2017/07/05
+" Last update Date : 2017/07/08
 " Distribution is really appreciated.
-" Version : 1.3.1
+" Version : 1.3.2
 "
 " Last modified:
-" 	1. Add some django template surround keymaps
-"	  - In django jinja2 templates, {% %}, {{ }} is open used.
-"	  - So keymap for this added.
-"         - Also tags like 'if', 'for', 'comment' need ending tags additionaly
-"	  - These kind of tags followed by ending tags are added first.
+" 	Changed NERDtreeWidth from 31 to 23.
 "
 "
 " * https://github.com/shoark7 *
@@ -93,6 +89,7 @@ endif
 
 "Window settings like positions of each window
 let NERDTreeWinPos = "left"
+let g:NERDTreeWinSize=23  "Set default tree width from 31 to 23. Added at v.1.3.2
 let Tlist_Ctags_Cmd = "/usr/bin/ctags"
 let Tlist_Inc_Winwidth = 0
 let Tlist_Exit_OnlyWindow = 0
