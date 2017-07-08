@@ -1,14 +1,20 @@
 """""""""""""""""""""""""""""""""""""""""""
-"
-" Customized .vimrc file by Stonehead Park
+" " Customized .vimrc file by Stonehead Park
 " Last update Date : 2017/07/08
 " Distribution is really appreciated.
-" Version : 1.4.0
+" Version : 1.5.0
 "
 " Last modified:
-"	1. Installed 'nerdcommenter', a comment plugin for many languages.
-"	  - This plugin works many languages including java, python, c
-"	  - Multiple line commenting is also suppored and many good settings
+" 	1. Set NERDTREE options a lot
+" 	  - NERDTREE UI is minimalied
+" 	  - tree opens when opening a dir, not when opening a file
+" 	  - A tab automacially shuts down when a tree is the only node in a tab
+" 	  - Tree shows hidden files except files to be ignored like '.git'
+" 	  - Files in a tree are sorted in a natural way, not in a computer way
+" 	2. .vimrc file is prettified
+" 	  - Now .vimrc consists of several parts
+" 	   : plugin lists, plugin settings, personal keymaps
+" 	  - Blank lines are places in a right way
 "
 " * https://github.com/shoark7 *
 " * All rights are not reserved *
@@ -60,7 +66,11 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 
-"Plugin settings 
+
+"""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""  Plugin lists  """"""""""""""
+"""""""""""""""""""""""""""""""""""""""""""
+
 Plugin 'The-NERD-Tree'
 Plugin 'AutoComplPop'
 Plugin 'taglist-plus'
@@ -80,64 +90,21 @@ Plugin 'AutoClose'
 Plugin 'surround.vim'
 Plugin 'scrooloose/nerdcommenter'
 
-"Non plugin settings after this line.
-if has('gui_running')
-	set background=dark
-	colorscheme solarized
-else
-	colorscheme zenburn
-	set background=dark
-endif
 
-"Window settings like positions of each window
-let NERDTreeWinPos = "left"
-let g:NERDTreeWinSize=23  "Set default tree width from 31 to 23. Added at v.1.3.2
-let NERDTreeQuitOnOpen=1  "Set NerdTree to open on default at dir, not open at file v.1.3.3
-let NERDTreeShowHidden=1  "Set to show hidden files at nerdtree
-autocmd VimEnter * NERDTree
-let Tlist_Ctags_Cmd = "/usr/bin/ctags"
-let Tlist_Inc_Winwidth = 0
-let Tlist_Exit_OnlyWindow = 0
-let Tlist_Auto_Open = 0
-let Tlist_Use_Right_Window = 1
-let g:SimpylFold_docstring_preview=4 "Show simplyfold only one line
-let python_highlight_all=1
-let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
-let g:flake8_quickfix_location="topleft" "Setting for flake8
 
-"ycm setting
-let g:ycm_server_keep_logfiles = 1
-let g:ycm_server_log_level = 'debug'
-let g:ycm_autoclose_preview_window_after_completion=1
-let g:ycm_goto_buffer_command = 'vertical-split'
-let g:ycm_python_binary_path = '/home/sunghwanpark/.pyenv/shims/python3.5'
+"""""""""""""""""""""""""""""""""""""""""""
+"""""""""""  Basic settings  """"""""""""""
+"""""""""""""""""""""""""""""""""""""""""""
 
-"Setting for BadWhitespace
-highlight BadWhitespace ctermbg=red guibg=darkred
-
-"Which window to use when splitting off windows
-set splitbelow
+set splitbelow   "split directions
 set splitright
-
-" Number line generated when starting up vi
-set nu
-
-" Auto indenting when coding starts
-set smartindent
-
-" Highlighted when search mode and normal mode
-set hlsearch
-
-" Ignorecase in search mode and normal mode
-set ignorecase
-
-"Auto NERDTree option
-"autocmd VimEnter * NERDTree
-"autocmd BufEnter * NERDTreeMirror
-
-"Folding option
+set nu           " Number line generated when starting up vi
+set smartindent  " Auto indenting when coding starts
+set hlsearch     " Highlighted when search mode and normal mode
+set ignorecase   " Ignorecase in search mode and normal mode
+set foldlevel=99 "Folding options
 set foldmethod=indent
-set foldlevel=99
+
 
 "Indentaion setting for python
 au BufNewFile,BufRead *.py,*.c
@@ -155,28 +122,81 @@ au BufNewFile,BufRead *.js,*.html,*.css
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
 
+"Setting for BadWhitespace
+highlight BadWhitespace ctermbg=red guibg=darkred
+
 "Notify for bad whitespaces"
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-
-"vim-flake8 checking
-syntax on
-
-"Theme toggling
-call togglebg#map("<F5>")
 
 "Always open a file in a new tab
 autocmd VimEnter * tab all
 "autocmd BufAdd * exe 'tablast | tabe "' . expand( "<afile") .'"'
+
+
+"Non plugin settings after this line.
+if has('gui_running')
+	set background=dark
+	colorscheme solarized
+else
+	colorscheme zenburn
+	set background=dark
+endif
+
+"Theme toggling
+call togglebg#map("<F5>")
+
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""
+""""""""""""  Plugin settings  """"""""""""
+"""""""""""""""""""""""""""""""""""""""""""
+
+"Setting for NERDTREE
+""" 1.5.0
+let NERDTreeWinPos = "left"
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+autocmd BufEnter * NERDTreeMirror  "All tabs share a one tree
+let NERDTreeNaturalSort=1          "Files in trees are sorted in a natrual way, like 'z1.txt, z2.txt, z10.txt'
+let NERDTreeMinimalUI = 1          "Minimal UI for NERDTREE
+let NERDTreeShowHidden=1           "Set to show hidden files at nerdtree
+""" Before 1.5.0
+let g:NERDTreeWinSize=23  "Set default tree width from 31 to 23. Added at v.1.3.2
+let Tlist_Ctags_Cmd = "/usr/bin/ctags"
+let Tlist_Inc_Winwidth = 0
+let Tlist_Exit_OnlyWindow = 0
+let Tlist_Auto_Open = 0
+let Tlist_Use_Right_Window = 1
+let g:SimpylFold_docstring_preview=4 "Show simplyfold only one line
+let python_highlight_all=1
+let NERDTreeIgnore=['\.pyc$', '\~$', '\.git$'] "ignore files in NERDTree
+let g:flake8_quickfix_location="topleft" "Setting for flake8
+
+
+"Setting for ycm
+let g:ycm_server_keep_logfiles = 1
+let g:ycm_server_log_level = 'debug'
+let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_goto_buffer_command = 'vertical-split'
+let g:ycm_python_binary_path = '/home/sunghwanpark/.pyenv/shims/python3.5'
+
+
+"Setting for vim-flake8
+syntax on
+
 
 "Setting for scroolose/nerdcommenter. At v.1.4.0
 """ This plugin is a handy commenter for all languages
 let g:NERDDefaultAlign = 'left'
 
 
+
+
 """""""""""""""""""""""""""""""""""""""""""
 """"" Personally customized keymaps """""""
 """""""""""""""""""""""""""""""""""""""""""
-
 
 "Useful shortcut 1. Shifting through windows - clockwise
     "Next window
@@ -190,15 +210,19 @@ nnoremap <C-L> <C-W><C-L>
     "Left window
 nnoremap <C-H> <C-W><C-H>
 
+
 "Useful shortcut 2. fold and unfold
 nnoremap <space> za
+
 
 "Useful shortcut 3. ESC key --> jj
 inoremap jj <ESC>
 
+
 "Keymap for NERDTree and variable list toggle 
-nmap <F8> :NERDTree<CR>
+nmap <F8> :NERDTreeToggle<CR>
 nmap <F9> :TlistToggle<CR>
+
 
 "Keymap for window sizing
 "Useful when using many windows at the same time
@@ -207,26 +231,32 @@ nmap <S-F6> :vertical resize -5<CR>
 nmap <S-F7> :resize +5<CR>
 nmap <S-F8> :resize -5<CR>
 
+
 "Keymap for syntax inspection
 "Python dedicated.
 autocmd FileType python map <buffer> <F4> :call Flake8()<CR>
 
+
 "Keymap for ENTER
 map <ENTER> i<ENTER>
 
+
 "Go to definition keymap
 nnoremap fd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
 
 """ Tab keymaps.
 "Creating and deleting a tab
 nnoremap tn :tabnew<CR>
 nnoremap tq :tabclose<CR>
 
+
 "Keymap for tab shifting
 nnoremap <F2> :tabprevious<CR>
 nnoremap <F3> :tabnext<CR>
 inoremap <F2> <ESC>:tabprevous<CR>
 inoremap <F3> <ESC>:tabnext<CR>
+
 
 "Shifting through tabs with tab numbers.
 nnoremap t1 1gt
@@ -240,6 +270,7 @@ nnoremap t8 8gt
 nnoremap t9 9gt
 nnoremap t0 10gt
 """
+
 
 "Save and quit in insert mode. Same as Shift ZZ.
 inoremap <S-Z>Z <ESC>:wq<CR>
