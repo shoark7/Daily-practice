@@ -2,24 +2,18 @@
 " " Customized .vimrc file by Stonehead Park
 " Last update Date : 2017/07/08
 " Distribution is really appreciated.
-" Version : 1.6.0
+" Version : 1.6.1
 "
 " Last modified:
-" 	1. Installed a nerdtree-git plugin
-" 	  - This plugin shows file changes in nerdtree so I can check the
-" 	  status
-" 	  - It's from https://github.com/Xuyuanp/nerdtree-git-plugin
+" 	Nerdtree fresh keymap is added.
+" 	  - Before now, refreshing nerdtree was such a chore
+" 	    You had to move to nerdtree window and fresh R
+" 	    But now you can refresh in current window with <Leader><r>
 "
 " * https://github.com/shoark7 *
 " * All rights are not reserved *
 "
 """""""""""""""""""""""""""""""""""""""""""
-
-
-set nocompatible              " be iMproved, required
-set encoding=utf-8
-
-filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -90,6 +84,11 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 """""""""""""""""""""""""""""""""""""""""""
 """""""""""  Basic settings  """"""""""""""
 """""""""""""""""""""""""""""""""""""""""""
+
+set nocompatible              " be iMproved, required
+set encoding=utf-8
+filetype off                  " required
+set modifiable
 
 set splitbelow   "split directions
 set splitright
@@ -217,6 +216,8 @@ inoremap jj <ESC>
 "Keymap for NERDTree and variable list toggle 
 nmap <F8> :NERDTreeToggle<CR>
 nmap <F9> :TlistToggle<CR>
+""" Nerdtree refresh keymap <Leader><r> at v.1.6.1
+nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p><esc> 
 
 
 "Keymap for window sizing
