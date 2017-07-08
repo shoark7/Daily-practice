@@ -2,19 +2,13 @@
 " " Customized .vimrc file by Stonehead Park
 " Last update Date : 2017/07/08
 " Distribution is really appreciated.
-" Version : 1.5.0
+" Version : 1.6.0
 "
 " Last modified:
-" 	1. Set NERDTREE options a lot
-" 	  - NERDTREE UI is minimalied
-" 	  - tree opens when opening a dir, not when opening a file
-" 	  - A tab automacially shuts down when a tree is the only node in a tab
-" 	  - Tree shows hidden files except files to be ignored like '.git'
-" 	  - Files in a tree are sorted in a natural way, not in a computer way
-" 	2. .vimrc file is prettified
-" 	  - Now .vimrc consists of several parts
-" 	   : plugin lists, plugin settings, personal keymaps
-" 	  - Blank lines are places in a right way
+" 	1. Installed a nerdtree-git plugin
+" 	  - This plugin shows file changes in nerdtree so I can check the
+" 	  status
+" 	  - It's from https://github.com/Xuyuanp/nerdtree-git-plugin
 "
 " * https://github.com/shoark7 *
 " * All rights are not reserved *
@@ -89,6 +83,7 @@ Plugin 'Emmet.vim'
 Plugin 'AutoClose'
 Plugin 'surround.vim'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 
 
