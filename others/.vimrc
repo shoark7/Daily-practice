@@ -2,20 +2,20 @@
 " " Customized .vimrc file by Stonehead Park
 " Last update Date : 2017/07/10
 " Distribution is really appreciated.
-" Version : 1.6.2
+" Version : 1.6.3
 "
 " Last modified:
-"	1. 'AutoComplPop' plugin is removed
-"	  - This plugin does same thing with YCM and YCM is better
-"	    So I deleted this plugin
-"	2. 'AutoClose' plugin is removed
-"	  - This plugin is not that crafty
-"	    Not that convenient as I expected and not good at django
-"	3. ycm_python_binary_path variable is changed
-"	  - For exact word suggestion, I pointed another path that has django
-"	    inside
-"	4. Some keymaps for jinja is changed.
-"	  - check it out. It may change over time
+" 	1. Changed window resizing keymap
+" 	  - I don't know why but old keymaps for resizing
+" 	    don't work after PluginUpate & Install of ycm
+" 	    So I changed it anyway
+" 	2. Keymap for ctrlP is changed
+" 	  - One of resizing keymaps use 'ctrl + p', but
+" 	    it ctrlP also used it. So i Changed it to
+" 	    'ctrl + f'. It matches browser's finding functions
+"       3. Small fix in ycm
+"         - Don't keep logs anymore.
+"         - Don't turn on preview window anymore.
 "
 "
 " * https://github.com/shoark7 *
@@ -53,7 +53,6 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 """""""""""""""""""""""""""""""""""""""""""
 
 Plugin 'The-NERD-Tree'
-"Plugin 'AutoComplPop'
 Plugin 'taglist-plus'
 Plugin 'snipMate'
 Plugin 'srcexpl'
@@ -180,9 +179,9 @@ let g:flake8_quickfix_location="topleft" "Setting for flake8
 
 
 "Setting for ycm
-let g:ycm_server_keep_logfiles = 1
+let g:ycm_server_keep_logfiles = 0
 let g:ycm_server_log_level = 'debug'
-let g:ycm_autoclose_preview_window_after_completion=1
+set completeopt-=preview  " Turn off preview window. It is annoying.. At 1.6.3
 let g:ycm_goto_buffer_command = 'vertical-split'
 let g:ycm_python_binary_path = '/home/sunghwanpark/.pyenv/versions/3.5.2/bin/python3.5' 
 " This python route should have modules you want or ycm cannot suggest words or
@@ -214,7 +213,7 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
     "Right window
 nnoremap <C-L> <C-W><C-L>
-    "Left window
+"Left window
 nnoremap <C-H> <C-W><C-H>
 
 
@@ -235,10 +234,10 @@ nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p><esc>
 
 "Keymap for window sizing
 "Useful when using many windows at the same time
-nmap <S-F5> :vertical resize +5<CR>
-nmap <S-F6> :vertical resize -5<CR>
-nmap <S-F7> :resize +5<CR>
-nmap <S-F8> :resize -5<CR>
+nnoremap <C-o> :vertical resize +5<CR>
+nnoremap <C-p> :vertical resize -5<cr>
+nnoremap <C-[> :resize +5<cr>
+nnoremap <C-]> :resize -5<CR>
 
 
 "Keymap for syntax inspection
@@ -305,3 +304,8 @@ let g:surround_{char2nr("F")} = "{% for \r %}\n\n{% emtpy %}\n\n{% endfor %}"
 let g:surround_{char2nr("i")} = "{% if \r %}\n\n{% else %}\n\n{% endif %}"
 let g:surround_{char2nr("I")} = "{% if \r %}\n\n{% elif %}\n\n{% elif %}\n\n{% else %}\n\n{% endif %}"
 let g:surround_{char2nr("p")} = "{% \r %}"
+
+
+"Key map for ctrlP
+"Changed due to duplication with keymap for resizing window in vim at 1.6.3
+let g:ctrlp_map = '<c-f>'
