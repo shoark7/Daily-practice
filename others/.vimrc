@@ -1,14 +1,22 @@
-"""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""
 " " Customized .vimrc file by Stonehead Park
-" Last update Date : 2017/07/08
+" Last update Date : 2017/07/10
 " Distribution is really appreciated.
-" Version : 1.6.1
+" Version : 1.6.2
 "
 " Last modified:
-" 	Nerdtree fresh keymap is added.
-" 	  - Before now, refreshing nerdtree was such a chore
-" 	    You had to move to nerdtree window and fresh R
-" 	    But now you can refresh in current window with <Leader><r>
+"	1. 'AutoComplPop' plugin is removed
+"	  - This plugin does same thing with YCM and YCM is better
+"	    So I deleted this plugin
+"	2. 'AutoClose' plugin is removed
+"	  - This plugin is not that crafty
+"	    Not that convenient as I expected and not good at django
+"	3. ycm_python_binary_path variable is changed
+"	  - For exact word suggestion, I pointed another path that has django
+"	    inside
+"	4. Some keymaps for jinja is changed.
+"	  - check it out. It may change over time
+"
 "
 " * https://github.com/shoark7 *
 " * All rights are not reserved *
@@ -40,8 +48,33 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Avoid a name conflict with L9
 "Plugin 'user/L9', {'name': 'newL9'}
 
+"""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""  Plugin lists  """"""""""""""
+"""""""""""""""""""""""""""""""""""""""""""
+
+Plugin 'The-NERD-Tree'
+"Plugin 'AutoComplPop'
+Plugin 'taglist-plus'
+Plugin 'snipMate'
+Plugin 'srcexpl'
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'nvie/vim-flake8'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'jnurmine/Zenburn'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'kien/ctrlp.vim'
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'Emmet.vim'
+Plugin 'surround.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 " All of your Plugins must be added before the following line
+
 call vundle#end()            " required
+
+
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
@@ -55,29 +88,6 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 
 
-"""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""  Plugin lists  """"""""""""""
-"""""""""""""""""""""""""""""""""""""""""""
-
-Plugin 'The-NERD-Tree'
-Plugin 'AutoComplPop'
-Plugin 'taglist-plus'
-Plugin 'snipMate'
-Plugin 'srcexpl'
-Plugin 'tmhedberg/SimpylFold'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'nvie/vim-flake8'
-Bundle 'Valloric/YouCompleteMe'
-Plugin 'jnurmine/Zenburn'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'kien/ctrlp.vim'
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-Plugin 'Emmet.vim'
-Plugin 'AutoClose'
-Plugin 'surround.vim'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 
 
@@ -174,7 +184,10 @@ let g:ycm_server_keep_logfiles = 1
 let g:ycm_server_log_level = 'debug'
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_goto_buffer_command = 'vertical-split'
-let g:ycm_python_binary_path = '/home/sunghwanpark/.pyenv/shims/python3.5'
+let g:ycm_python_binary_path = '/home/sunghwanpark/.pyenv/versions/3.5.2/bin/python3.5' 
+" This python route should have modules you want or ycm cannot suggest words or
+" phrases you want
+
 
 
 "Setting for vim-flake8
@@ -279,15 +292,16 @@ inoremap <S-F>S <ESC>:w<CR>ma
 
 "Key map for Emmet.vim
 "" Keymap for expansion # 1.1.7
-let g:user_emmet_expandabbr_key = '<c-e>'
+let g:user_emmet_expandabbr_key = '<c-e>'  " Which stands for 'e'mmet
 
 
 "Key map for surround.vim
 """ Keymap for django jinja template # 1.2.0
-let g:surround_{char2nr("i")} = "{% if \r %}\n\n{% endif %}"
-let g:surround_{char2nr("I")} = "{% if \r %}\n\n{% elif %}\n\n{% else %}\n\n{% endif %}"
+let g:surround_{char2nr("b")} = "{% block '\r' %}\n\n{% endblock %}"
+let g:surround_{char2nr("c")} = "{% comment \r %}\n\n{% endcomment %}"
+let g:surround_{char2nr("e")} = "{% extends '\r' %}"
 let g:surround_{char2nr("f")} = "{% for \r %}\n\n{% endfor %}"
 let g:surround_{char2nr("F")} = "{% for \r %}\n\n{% emtpy %}\n\n{% endfor %}"
-let g:surround_{char2nr("b")} = "{{ \r }}"
+let g:surround_{char2nr("i")} = "{% if \r %}\n\n{% else %}\n\n{% endif %}"
+let g:surround_{char2nr("I")} = "{% if \r %}\n\n{% elif %}\n\n{% elif %}\n\n{% else %}\n\n{% endif %}"
 let g:surround_{char2nr("p")} = "{% \r %}"
-let g:surround_{char2nr("c")} = "{% comment \r %}\n\n{% endcomment %}"
