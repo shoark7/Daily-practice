@@ -1,21 +1,22 @@
-""""""""""""""""""""""""""""""""""""""""""""
-" " Customized .vimrc file by Stonehead Park
-" Last update Date : 2017/07/10
+" Last update Date : 2017/07/11
 " Distribution is really appreciated.
-" Version : 1.6.3
+" Version : 1.6.4
 "
 " Last modified:
-" 	1. Changed window resizing keymap
-" 	  - I don't know why but old keymaps for resizing
-" 	    don't work after PluginUpate & Install of ycm
-" 	    So I changed it anyway
-" 	2. Keymap for ctrlP is changed
-" 	  - One of resizing keymaps use 'ctrl + p', but
-" 	    it ctrlP also used it. So i Changed it to
-" 	    'ctrl + f'. It matches browser's finding functions
-"       3. Small fix in ycm
-"         - Don't keep logs anymore.
-"         - Don't turn on preview window anymore.
+" 	1. Changed keymaps using f1~f12
+" 	 - Nowadays I'm learning tmux and setting keymaps for it.
+" 	   I don't know why but some keymaps in vim does not working
+" 	   properly.
+"
+" 	   So I changed some keymaps in .vimrc to use it tmux too.
+" 	   Changed keymaps are
+" 	   	
+" 	   	- tab shifting keymaps
+" 	   	- vertical and horizontal window resizing keymaps
+" 	   	- flake8 keymap
+" 	   	- toggling nerdtree and tlist keymaps
+"
+" 	   These keymaps are all binded to f1~f12. Check it out.
 "
 "
 " * https://github.com/shoark7 *
@@ -146,7 +147,8 @@ else
 endif
 
 "Theme toggling
-call togglebg#map("<F5>")
+""" Changed to f12 at v.1.6.4
+call togglebg#map("<F12>")
 
 
 
@@ -226,23 +228,26 @@ inoremap jj <ESC>
 
 
 "Keymap for NERDTree and variable list toggle 
+""" Changed to f8, f9 at v.1.6.4
 nmap <F8> :NERDTreeToggle<CR>
 nmap <F9> :TlistToggle<CR>
-""" Nerdtree refresh keymap <Leader><r> at v.1.6.1
+"l keymap in vim not working in tmuxrdtree refresh keymap <Leader><r> at v.1.6.1
 nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p><esc> 
 
 
 "Keymap for window sizing
-"Useful when using many windows at the same time
-nnoremap <C-o> :vertical resize +5<CR>
-nnoremap <C-p> :vertical resize -5<cr>
-nnoremap <C-[> :resize +5<cr>
-nnoremap <C-]> :resize -5<CR>
+""" Useful when using many windows at the same time
+""" Changed to f3 ~ f6 at v.1.6.4
+nnoremap <F3> :vertical resize +5<CR>
+nnoremap <F4> :vertical resize -5<cr>
+nnoremap <F5> :resize +5<cr>
+nnoremap <F6> :resize -5<CR>
 
 
 "Keymap for syntax inspection
-"Python dedicated.
-autocmd FileType python map <buffer> <F4> :call Flake8()<CR>
+""" Python dedicated.
+""" changed to original keymap f7 at v.1.6.4
+"autocmd FileType python map <buffer> <F6> :call Flake8()<CR>
 
 
 "Keymap for ENTER
@@ -253,17 +258,18 @@ map <ENTER> i<ENTER>
 nnoremap fd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 
-""" Tab keymaps.
-"Creating and deleting a tab
+" Tab keymaps.
+""" Creating and deleting a tab
 nnoremap tn :tabnew<CR>
 nnoremap tq :tabclose<CR>
 
 
 "Keymap for tab shifting
-nnoremap <F2> :tabprevious<CR>
-nnoremap <F3> :tabnext<CR>
-inoremap <F2> <ESC>:tabprevous<CR>
-inoremap <F3> <ESC>:tabnext<CR>
+""" Changed to f1, f2 at v.1.6.4
+nnoremap <F1> :tabprevious<CR>
+nnoremap <F2> :tabnext<CR>
+inoremap <F1> <ESC>:tabprevous<CR>
+inoremap <F2> <ESC>:tabnext<CR>
 
 
 "Shifting through tabs with tab numbers.
