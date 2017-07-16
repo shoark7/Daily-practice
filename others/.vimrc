@@ -1,22 +1,19 @@
-" Last update Date : 2017/07/11
+" Last update Date : 2017/07/16
 " Distribution is really appreciated.
-" Version : 1.6.4
+" Version : 1.7.0
 "
 " Last modified:
-" 	1. Changed keymaps using f1~f12
-" 	 - Nowadays I'm learning tmux and setting keymaps for it.
-" 	   I don't know why but some keymaps in vim does not working
-" 	   properly.
+" 	1. Installed a package 'vim-airline'
+" 	 - This plugin shows buffer status visibly
+" 	   So it's good to see how buffer and tabs are going on now.
+" 	   Also set many environment variables for it.
 "
-" 	   So I changed some keymaps in .vimrc to use it tmux too.
-" 	   Changed keymaps are
-" 	   	
-" 	   	- tab shifting keymaps
-" 	   	- vertical and horizontal window resizing keymaps
-" 	   	- flake8 keymap
-" 	   	- toggling nerdtree and tlist keymaps
-"
-" 	   These keymaps are all binded to f1~f12. Check it out.
+" 	   But some more customization is needed.
+" 	2. Some keymaps for django jinja2 is removed
+" 	3. Tab shifting and deleting keymap is added
+" 	  - Tab shifting to right and left is side is using <tab> like browser
+" 	  - Deleting current buffer without quiting vim itself is possible
+" 	    with <leader><q>
 "
 "
 " * https://github.com/shoark7 *
@@ -70,6 +67,7 @@ Plugin 'Emmet.vim'
 Plugin 'surround.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'vim-airline' " At v.1.7.0
 " All of your Plugins must be added before the following line
 
 call vundle#end()            " required
@@ -190,7 +188,6 @@ let g:ycm_python_binary_path = '/home/sunghwanpark/.pyenv/versions/3.5.2/bin/pyt
 " phrases you want
 
 
-
 "Setting for vim-flake8
 syntax on
 
@@ -198,6 +195,25 @@ syntax on
 "Setting for scroolose/nerdcommenter. At v.1.4.0
 """ This plugin is a handy commenter for all languages
 let g:NERDDefaultAlign = 'left'
+
+
+"Setting for vim-airline at v.1.7.0
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline_section_b = '%{strftime("%c")}'
+let g:airline_section_c = '%t'
+"let g:airline_section_y = 'BN: %{bufnr("%")}'
+let g:airline_section_error = ''
+let g:airline_section_warning = ''
+let g:airline_theme = 'badwolf'
+set laststatus=2
+
+
+"Setting for powerline
+""" Install commands for poiwerline fonts
+""" git clone https://github.com/powerline/fonts.git; cd fonts; ./install.sh
+
+let g:Powerline_symbols = 'fancy'
 
 
 
@@ -302,9 +318,8 @@ let g:user_emmet_expandabbr_key = '<c-e>'  " Which stands for 'e'mmet
 
 "Key map for surround.vim
 """ Keymap for django jinja template # 1.2.0
-let g:surround_{char2nr("b")} = "{% block '\r' %}\n\n{% endblock %}"
+let g:surround_{char2nr("b")} = "{% block '\r' %}\n{% endblock %}"
 let g:surround_{char2nr("c")} = "{% comment \r %}\n\n{% endcomment %}"
-let g:surround_{char2nr("e")} = "{% extends '\r' %}"
 let g:surround_{char2nr("f")} = "{% for \r %}\n\n{% endfor %}"
 let g:surround_{char2nr("F")} = "{% for \r %}\n\n{% emtpy %}\n\n{% endfor %}"
 let g:surround_{char2nr("i")} = "{% if \r %}\n\n{% else %}\n\n{% endif %}"
@@ -315,3 +330,22 @@ let g:surround_{char2nr("p")} = "{% \r %}"
 "Key map for ctrlP
 "Changed due to duplication with keymap for resizing window in vim at 1.6.3
 let g:ctrlp_map = '<c-f>'
+
+
+"Tab shifting with tab and <shift> + tab at v.1.7.0
+""" tab goes to right and <shift> + tab goes to left
+nnoremap <tab> :bnext<cr>
+nnoremap <s-tab> :bprevious<cr>
+
+
+"Key map to close current buffer at v.1.7.0
+""" This keymap closes current buffer with cursor on.
+""" Becareful not to execute on NERDTree
+""" <leader><q> exceutes the function
+function CloseCurrentBuffer()
+	let current_buffer=bufnr('$')
+	bn
+	exec 'bw'.string(current_buffer)
+endfunction
+
+nmap <Leader>q :call CloseCurrentBuffer()<CR>
