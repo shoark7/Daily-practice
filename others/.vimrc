@@ -1,19 +1,11 @@
-" Last update Date : 2017/07/16
+" Last update Date : 2017/07/17
 " Distribution is really appreciated.
-" Version : 1.7.0
+" Version : 1.7.1
 "
 " Last modified:
-" 	1. Installed a package 'vim-airline'
-" 	 - This plugin shows buffer status visibly
-" 	   So it's good to see how buffer and tabs are going on now.
-" 	   Also set many environment variables for it.
-"
-" 	   But some more customization is needed.
-" 	2. Some keymaps for django jinja2 is removed
-" 	3. Tab shifting and deleting keymap is added
-" 	  - Tab shifting to right and left is side is using <tab> like browser
-" 	  - Deleting current buffer without quiting vim itself is possible
-" 	    with <leader><q>
+" 	1. Changed a keymap for current buffer deletion.
+" 	 - My keymap for buffer closing was complicated and
+" 	   Someone told me a good substitution for it. Now I'll use it
 "
 "
 " * https://github.com/shoark7 *
@@ -84,7 +76,6 @@ filetype plugin indent on    " required
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
 " see :h vundle for more details or wiki for FAQ
-
 
 
 
@@ -342,10 +333,16 @@ nnoremap <s-tab> :bprevious<cr>
 """ This keymap closes current buffer with cursor on.
 """ Becareful not to execute on NERDTree
 """ <leader><q> exceutes the function
-function CloseCurrentBuffer()
-	let current_buffer=bufnr('$')
-	bn
-	exec 'bw'.string(current_buffer)
-endfunction
+"function CloseCurrentBuffer()
+"        let current_buffer=bufnr('$')
+"        bn
+"        exec 'bw'.string(current_buffer)
+"endfunction
 
-nmap <Leader>q :call CloseCurrentBuffer()<CR>
+"nmap <Leader>q :call CloseCurrentBuffer()<CR>
+
+
+"Key map for closing current buffer at v.1.7.1
+""" My yesterday version was somewhat complex and I'll use simple one.
+""" You know simple is better. Keymap is same
+nnoremap <leader>q :b#<bar>bd#<CR>
