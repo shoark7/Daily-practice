@@ -31,7 +31,7 @@ def image_download(url, name=None, download_path='.'):
             name: Original image name will be used. But can be customized with what you want.
             download_path: Current directory by default. Can be modified.
         :result:
-            None. Whether downloaded successfuly or not, messages are printed.
+            None. Whether downloaded successfully or not, messages are printed.
     """
 
     if not os.path.exists(download_path):
