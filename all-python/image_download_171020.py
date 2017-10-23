@@ -46,7 +46,7 @@ def image_download(url, name=None, download_path='.'):
     image_bytes = requests.get(url).content
     image = Image.open(BytesIO(image_bytes))  # Image.open needs a file-like object
 
-    final_file_name = download_path + '/' + name_prefix + ext
+    final_file_name = os.path.join(download_path, name_prefix + ext)
 
     if os.path.exists(final_file_name):  # Maybe there might be a file with the same name we want
         raise OSError('***', final_file_name, "Already exists ***")
