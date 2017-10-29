@@ -16,6 +16,10 @@
 #### :file_folder: Contents
 * What I recommend are emphasized.
 > :orange_book: New version format(since 16/09/17. contains comments and written in English.)
+> - [image_download_171020.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/image_download_171020.py)
+> - [seconds_to_timestring_171019.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/seconds_to_timestring_171019.py)
+> - [for_yerang_170925.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/for_yerang_170925.py)
+> - [excel_column_changer_170916.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/excel_column_changer_170916.py)
 > - [counting_sort_170731.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/counting_sort_170731.py)
 > - [quadratic_equation_170723.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/quadratic_euqation_170723.py)
 > - [argparse_practice_170719.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/argparse_practice_170719.py)
