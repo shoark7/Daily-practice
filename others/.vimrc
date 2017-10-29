@@ -1,11 +1,10 @@
-" Last update Date : 2017/07/17
+" Last update Date : 2017/10/29
 " Distribution is really appreciated.
-" Version : 1.7.1
+" Version : 1.7.2
 "
 " Last modified:
-" 	1. Changed a keymap for current buffer deletion.
-" 	 - My keymap for buffer closing was complicated and
-" 	   Someone told me a good substitution for it. Now I'll use it
+" 	1. Configure vim not to make swap file.
+" 	 - No more swap files in this vim.
 "
 "
 " * https://github.com/shoark7 *
@@ -346,3 +345,9 @@ nnoremap <s-tab> :bprevious<cr>
 """ My yesterday version was somewhat complex and I'll use simple one.
 """ You know simple is better. Keymap is same
 nnoremap <leader>q :b#<bar>bd#<CR>
+
+
+"Set noswapfile at v.1.7.2
+""" It was a big stress that vim makes swap files any time it's annoyed.
+""" Stop that, boy.
+set noswapfile
