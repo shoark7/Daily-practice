@@ -56,3 +56,5 @@ args = parser.parse_args()
 output = fetch(args.url, args.xpath)
 words = extract_words(output)
 to_csv(sys.stdout, words)
+# By pointing sys.stdout, you can print it out on terminal screen,
+# And into a file if you want. It's more portable.
