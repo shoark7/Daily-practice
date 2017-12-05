@@ -15,6 +15,7 @@
 import argparse
 import os
 import os.path
+import re
 
 
 # All variables will be given by input later.
@@ -30,12 +31,16 @@ for root, dirs, files in os.walk(path):
 
     if file_type == 'file':
         for file in files:
-            print(os.path.join(root, file))
+            if name in file:
+                print(os.path.join(root, file))
     elif file_type == 'dir':
         for dir in dirs:
-            print(os.path.join(root, dir))
+            if name in dir:
+                print(os.path.join(root, dir))
     else:
         for file in files:
-            print(os.path.join(root, file))
+            if name in file:
+                print(os.path.join(root, file))
         for dir in dirs:
-            print(os.path.join(root, dir))
+            if name in dir:
+                print(os.path.join(root, dir))
