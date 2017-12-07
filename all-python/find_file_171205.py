@@ -21,26 +21,27 @@ import re
 
 
 parser = argparse.ArgumentParser(description="Arg parser for find program")
-parser.add_argument('path', nargs='?', default='.', help="Path to be searched. Defaults to current\
-                    directory")
+parser.add_argument('path', nargs='?', default='.',
+                    help="Path to be searched. Defaults to current directory")
 parser.add_argument('-type', choices=['a', 'd', 'f'], default='a', dest="type",
                     help="Type of the file wanted")
 parser.add_argument('-name', required=True, dest='name', help="Name of the file wanted")
-
+parser.add_argument('-abs-path', action='store_const', const=True, dest="abs_path", default=False,
+                    help="Whether or not to print out absolute path")
 args = parser.parse_args()
+
+
+def find_specific_file(root, file_list):
+    root = os.path.join(os.path.abspath(root)) if args.abs_path else root
+    for file in file_list:
+        if pattern.search(file):
+            print(os.path.join(root, file))
 
 
 if not os.path.exists(args.path):
     raise OSError("Invalid or relative path is given")
 
-
 pattern = re.compile(args.name)
-
-
-def find_specific_file(root, file_list):
-    for file in file_list:
-        if pattern.search(file):
-            print(os.path.join(root, file))
 
 
 for root, dirs, files in os.walk(args.path):
