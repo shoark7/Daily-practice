@@ -1,16 +1,16 @@
-"""Find file or directory of given name in a directory
+"""Find file or directory of given name in a directory recursively
 
     In Unix, there's a CLI program named 'find'.
     This program prints absolute paths of files with names matching user input \
     in a given directory.
 
-    My goal is to extend Unix's find program to platform independent program.
+    My goal is to extend Unix's find program to platform independent one.
 
     'Everything is a file in Unix'. We know that.
     So unlike title of this module, you can filter out file or directory or even all in this
     program.
 
-    I'll update this program continuously like regular expression matching.
+    Update will be given after now.
 
 
     Start Date : 2017/12/05
@@ -31,7 +31,7 @@ parser.add_argument('path', nargs='?', default='.',
 parser.add_argument('-type', choices=['a', 'd', 'f'], default='a', dest="type",
                     help="Type of the file wanted")
 parser.add_argument('-name', required=True, dest='name', help="Name of the file wanted")
-parser.add_argument('-abs-path', action='store_const', const=True, dest="abs_path", default=False,
+parser.add_argument('-abs-path', action='store_const', const=True, default=False,
                     help="Whether or not to print out absolute path")
 args = parser.parse_args()
 
