@@ -1,10 +1,11 @@
-" Last update Date : 2017/10/29
+" Last update Date : 2018/03/01
 " Distribution is really appreciated.
-" Version : 1.7.2
-"
+" Version : 1.7.3
+
 " Last modified:
-" 	1. Configure vim not to make swap file.
-" 	 - No more swap files in this vim.
+" 	1. Make visual block yank copied to the global clipboard
+" 	 - If you now visually block + y, 
+" 	   you can paste the content to othe programs.
 "
 "
 " * https://github.com/shoark7 *
@@ -253,7 +254,7 @@ nnoremap <F6> :resize -5<CR>
 "Keymap for syntax inspection
 """ Python dedicated.
 """ changed to original keymap f7 at v.1.6.4
-"autocmd FileType python map <buffer> <F6> :call Flake8()<CR>
+autocmd FileType python map <buffer> <F6> :call Flake8()<CR>
 
 
 "Keymap for ENTER
@@ -346,8 +347,14 @@ nnoremap <s-tab> :bprevious<cr>
 """ You know simple is better. Keymap is same
 nnoremap <leader>q :b#<bar>bd#<CR>
 
-
 "Set noswapfile at v.1.7.2
 """ It was a big stress that vim makes swap files any time it's annoyed.
 """ Stop that, boy.
 set noswapfile
+
+
+"Set visual block copy yanked to global clipboard at v.1.7.3
+""" It was really annoying to copy vim contents and paste them into others.
+""" This option lets visual block yank copyed to global clipboard
+set clipboard=unnamedplus  "For linux and vim over 7.3.74
+"set clipboard=unnamed     "For macOS
