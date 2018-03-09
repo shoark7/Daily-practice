@@ -18,3 +18,7 @@ for r in range(1, row + 1):
     for c in range(1, column + 1):
         cache[r][c] += 1 if cache[r-1][c] > cache[r][c] else 0
         cache[r][c] += 1 if cache[r][c-1] > cache[r][c] else 0
+
+
+def hi():
+    pass
