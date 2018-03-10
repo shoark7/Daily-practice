@@ -17,8 +17,9 @@ import requests
 import string
 
 
+TODAY = datetime.datetime.today()
 URL_PREFIX = 'https://www.gitignore.io/api/'
-TOTAL_LIST = 'actionscript,ada,agda,android,appceleratortitanium,appcode,archives,
+TOTAL_LIST = """actionscript,ada,agda,android,appceleratortitanium,appcode,archives,
 archlinuxpackages,autotools,bancha,basercms,bower,bricxcc,c,c++,cakephp,
 cfwheels,chefcookbook,clojure,cloud9,cmake,codeigniter,codekit,commonlisp,
 compass,composer,concrete5,coq,cvs,dart,darteditor,delphi,django,dotsettings,
@@ -35,25 +36,55 @@ seamgen,senchatouch,silverstripe,sketchup,stella,sublimetext,sugarcrm,svn,
 symfony,symfony2,symphonycms,tags,target3001,tarmainstallmate,tasm,tex,textmate,
 textpattern,turbogears2,typo3,unity,vagrant,vim,virtualenv,visualstudio,vvvv,
 waf,wakanda,webmethods,webstorm,windows,wordpress,xamarinstudio,xcode,xilinxise,
-yeoman,yii,zendframework'
+yeoman,yii,zendframework"""
 
 
-# get user input
-langs = input().strip().lower()
+def create_gitignore():
+
+    ori_langs = input().strip()
+    lower_langs = ori_langs.lower()
 
 
-# langs re validation
-pattern = re.compile(r'([abcdefghijklmnopqrstuvwxyz]+,?)+')
-if not pattern.fullmatch(lnags):
-    raise ValueError('Langauges are not in right forms. Must be "lang[+,+lang]", without spaces')
+    pattern = re.compile(r'([abcdefghijklmnopqrstuvwxyz]+,?)+')
+    if not pattern.fullmatch(lower_langs):
+        raise ValueError('Langauges are not in right forms. Must be "lang[+,+lang]", without spaces')
+
+    lower_langs = lower_langs.split(',')
+    ori_langs = ori_langs.split(',')
 
 
-# requests & response
-lang_list = langs.split(',')
-url = URL_PREFIX + langs
-text = requests.get(url).text
+    valid_langs = [l for l in lower_langs if l in TOTAL_LIST]
+    unvalid_langs = [l for l in lower_langs if l not in TOTAL_LIST]
+    url = URL_PREFIX + ','.join(valid_langs)
+    text = requests.get(url).text
+    if not valid_langs:
+        print("I cannot recognize any of your words... Program exited")
+        return None
 
 
-# write to a file
-with open('./.gitignore') as fd:
-    fd.wirte(text)
+    with open('./.gitignore', 'w') as fd:
+        fd.write(text)
+        fd.write('# Made at {:4d}/{:02d}/{:02d}'.format(TODAY.year, TODAY.month, TODAY.day))
+
+
+    print('\nSuccessfully created with {} languages:\n'.format(len(valid_langs)))
+    for lang in valid_langs:
+        print('\t{lang}'.format(
+            lang=ori_langs[lower_langs.index(lang)]
+        ))
+    print('\n')
+
+    if unvalid_langs:
+        print('############# Error #############')
+        print("Couldn't get the message of these:\n")
+        for lang in unvalid_langs:
+            print(lang)
+            print('\t{lang}'.format(
+                lang=ori_langs[lower_langs.index(lang)]
+            ))
+        print("Maybe you need another shot after correcting typos")
+        print('\n###############################')
+
+
+if __name__ == '__main__':
+    create_gitignore()
