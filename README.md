@@ -16,6 +16,8 @@
 #### :file_folder: Contents
 * What I recommend are emphasized.
 > :orange_book: New version format(since 16/09/17. contains comments and written in English.)
+> - [create_gitignore_180309.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/create_gitiignore_180309.py)
+> - [send_gmail_180308.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/send_gmail_180306.py)
 > - [image_download_171020.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/image_download_171020.py)
 > - [seconds_to_timestring_171019.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/seconds_to_timestring_171019.py)
 > - [for_yerang_170925.py](https://github.com/shoark7/Daily-practice/blob/master/all-python/for_yerang_170925.py)
