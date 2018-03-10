@@ -7,14 +7,12 @@ In its github(https://github.com/joeblau/gitignore.io) they support apis through
 but I wanted to implement it through Python script.
 
 Start Date: 2018/03/09
-End   Date: 2018/?????
+End   Date: 2018/03/10
 """
 
-import argparse
 import datetime
 import re
 import requests
-import string
 
 
 TODAY = datetime.datetime.today()
@@ -39,7 +37,7 @@ waf,wakanda,webmethods,webstorm,windows,wordpress,xamarinstudio,xcode,xilinxise,
 yeoman,yii,zendframework"""
 
 
-def create_gitignore():
+def create_gitignore(stream='./.gitignore'):
 
     ori_langs = input().strip()
     lower_langs = ori_langs.lower()
@@ -62,7 +60,7 @@ def create_gitignore():
         return None
 
 
-    with open('./.gitignore', 'w') as fd:
+    with open(stream, 'w') as fd:
         fd.write(text)
         fd.write('# Made at {:4d}/{:02d}/{:02d}'.format(TODAY.year, TODAY.month, TODAY.day))
 
@@ -78,12 +76,11 @@ def create_gitignore():
         print('############# Error #############')
         print("Couldn't get the message of these:\n")
         for lang in unvalid_langs:
-            print(lang)
             print('\t{lang}'.format(
                 lang=ori_langs[lower_langs.index(lang)]
             ))
-        print("Maybe you need another shot after correcting typos")
-        print('\n###############################')
+        print("\nMaybe you need another shot after correcting typos")
+        print('\n#################################')
 
 
 if __name__ == '__main__':
