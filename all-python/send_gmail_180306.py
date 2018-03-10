@@ -26,7 +26,7 @@ Subject: {subject}
            subject=subject, body=body)
 
 if __name__ == '__main__':
-    id_ = input("ID(@) : ").strip()
+    id_ = input("ID(@)   : ").strip()
     password = getpass.getpass()
     
     try:
