@@ -38,7 +38,16 @@ yeoman,yii,zendframework"""
 
 
 def create_gitignore(stream='./.gitignore'):
+    """Create .gitignore file
 
+    This function creates .gitignore file with user input of frameworks.
+    Current directory is the default location.
+
+    It gets user input as a string of frameworks concatenated with ',' without spaces.
+    And then parses the string using ',' as a delimiter and sends a http request.
+
+    This prints out which langs were valid or not.
+    """
     ori_langs = input().strip()
     lower_langs = ori_langs.lower()
 
