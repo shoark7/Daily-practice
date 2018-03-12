@@ -48,7 +48,7 @@ def create_gitignore(stream='./.gitignore'):
 
     This prints out which langs were valid or not.
     """
-    ori_langs = input().strip()
+    ori_langs = input("Enter a string of languages you want: ").strip()
     lower_langs = ori_langs.lower()
 
 
