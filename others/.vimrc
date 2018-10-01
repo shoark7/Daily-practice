@@ -1,11 +1,14 @@
-" Last update Date : 2018/03/01
+" Last update Date : 2018/10/01
 " Distribution is really appreciated.
-" Version : 1.7.3
+" Version : 1.7.4
 
 " Last modified:
-" 	1. Make visual block yank copied to the global clipboard
-" 	 - If you now visually block + y, 
-" 	   you can paste the content to othe programs.
+" 	1. Highlight newline whitespace in markdown files
+" 	 - In markdown, newline character is not just '\n'.
+" 	   If you want to open a new line, you have to add '\s\s' at the end
+" 	   of the line.
+" 	   So this modification will notify whitespaces for newline in
+" 	   markdown file.
 "
 "
 " * https://github.com/shoark7 *
@@ -99,7 +102,8 @@ set foldlevel=99 "Folding options
 set foldmethod=indent
 
 
-"Indentaion setting for python
+"Indentation setting
+""Indentaion setting for python
 au BufNewFile,BufRead *.py,*.c
     \ set tabstop=4 |
     \ set softtabstop=4 |
@@ -109,17 +113,28 @@ au BufNewFile,BufRead *.py,*.c
     \ set autoindent |
     \ set fileformat=unix
 
-"Indentation for js, html, css
+""Indentation for js, html, css
 au BufNewFile,BufRead *.js,*.html,*.css
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
 
-"Setting for BadWhitespace
+
+"Setting for whitespace
+""Bad whitespace
+"""Setting for BadWhitespace
 highlight BadWhitespace ctermbg=red guibg=darkred
 
-"Notify for bad whitespaces"
+"""Notify for bad whitespaces"
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+""whitespace for markdown at v.1.7.4
+"""Setting for markdown whitespace
+highlight NewlineWhitespace ctermbg=yellow guibg=yellow
+
+"""Highlight newline character for markdown files.
+au BufRead,BufNewFile *.md, *.markdown match NewlineWhitespace /\s\+$/
+
 
 "Always open a file in a new tab
 autocmd VimEnter * tab all
