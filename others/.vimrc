@@ -1,105 +1,92 @@
-" Last update Date : 2018/10/01
-" Distribution is really appreciated.
-" Version : 1.7.4
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+" Update date : 2019/08/15
+" Version : 2.0.0
+"
 " Last modified:
-" 	1. Highlight newline whitespace in markdown files
-" 	 - In markdown, newline character is not just '\n'.
-" 	   If you want to open a new line, you have to add '\s\s' at the end
-" 	   of the line.
-" 	   So this modification will notify whitespaces for newline in
-" 	   markdown file.
+"	1. Trim contents in .vimrc file
+"	 - Sort plugin list order alphabetically
+"	 - Remove unnecessary comments
+"	 - Move some settings from previous locations to their appropriate
+"	 categories
+"
+"	2. Update plugins to their latest statuses
+"
+"	3. Remove all customized keymaps for jinja template syntax from
+"	surround.vim
+"
+"	4. Remove keymap for manual flake8 checkings(cuase it's done
+"	automatically after every file saving)
 "
 "
 " * https://github.com/shoark7 *
 " * All rights are not reserved *
+" * Distribution is really appreciated.
 "
-"""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" set the runtime path to include Vundle and initialize
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-Plugin 'L9'
-" Git plugin not hosted on GitHub
-Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-" Plugin '/usr/share/vim/vim74/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Avoid a name conflict with L9
-"Plugin 'user/L9', {'name': 'newL9'}
 
 """""""""""""""""""""""""""""""""""""""""""
 """""""""""""  Plugin lists  """"""""""""""
 """""""""""""""""""""""""""""""""""""""""""
 
-Plugin 'The-NERD-Tree'
-Plugin 'taglist-plus'
-Plugin 'snipMate'
-Plugin 'srcexpl'
-Plugin 'tmhedberg/SimpylFold'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'nvie/vim-flake8'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'jnurmine/Zenburn'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'Emmet.vim'
+Plugin 'git://git.wincent.com/command-t.git'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'jnurmine/Zenburn'
 Plugin 'kien/ctrlp.vim'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-Plugin 'Emmet.vim'
-Plugin 'surround.vim'
+Plugin 'L9'
+Plugin 'nvie/vim-flake8'
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/syntastic'
+Plugin 'snipMate'
+Plugin 'srcexpl'
+Plugin 'surround.vim'
+Plugin 'taglist-plus'
+Plugin 'The-NERD-Tree'
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'tpope/vim-fugitive'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'vim-airline'
+Plugin 'vim-scripts/indentpython.vim'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'vim-airline' " At v.1.7.0
-" All of your Plugins must be added before the following line
 
-call vundle#end()            " required
+call vundle#end()
 
 
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-
-
+filetype plugin indent on
 
 
 """""""""""""""""""""""""""""""""""""""""""
 """""""""""  Basic settings  """"""""""""""
 """""""""""""""""""""""""""""""""""""""""""
 
-set nocompatible              " be iMproved, required
+set nocompatible
 set encoding=utf-8
-filetype off                  " required
+filetype off
 set modifiable
 
-set splitbelow   "split directions
+set splitbelow
 set splitright
-set nu           " Number line generated when starting up vi
-set smartindent  " Auto indenting when coding starts
-set hlsearch     " Highlighted when search mode and normal mode
-set ignorecase   " Ignorecase in search mode and normal mode
-set foldlevel=99 "Folding options
+set nu
+set smartindent
+set hlsearch
+set ignorecase
+set foldlevel=99
 set foldmethod=indent
+set noswapfile
+
+
+"Set visual block copy yanked to global clipboard at v.1.7.3
+set clipboard=unnamedplus  "For linux and vim over 7.3.74
+"set clipboard=unnamed     "For macOS
 
 
 "Indentation setting
@@ -126,19 +113,18 @@ au BufNewFile,BufRead *.js,*.html,*.css
 highlight BadWhitespace ctermbg=red guibg=darkred
 
 """Notify for bad whitespaces"
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+au BufRead,BufNewFile,BufEnter *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 ""whitespace for markdown at v.1.7.4
 """Setting for markdown whitespace
-highlight NewlineWhitespace ctermbg=yellow guibg=yellow
+highlight NewlineWhitespace ctermbg=green guibg=green
 
 """Highlight newline character for markdown files.
-au BufRead,BufNewFile *.md, *.markdown match NewlineWhitespace /\s\+$/
+au BufRead,BufNewFile,BufEnter *.md,*.markdown match NewlineWhitespace /\s\+$/
 
 
 "Always open a file in a new tab
 autocmd VimEnter * tab all
-"autocmd BufAdd * exe 'tablast | tabe "' . expand( "<afile") .'"'
 
 
 "Non plugin settings after this line.
@@ -153,7 +139,6 @@ endif
 "Theme toggling
 """ Changed to f12 at v.1.6.4
 call togglebg#map("<F12>")
-
 
 
 
@@ -218,9 +203,7 @@ set laststatus=2
 "Setting for powerline
 """ Install commands for poiwerline fonts
 """ git clone https://github.com/powerline/fonts.git; cd fonts; ./install.sh
-
 let g:Powerline_symbols = 'fancy'
-
 
 
 
@@ -239,10 +222,6 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 "Left window
 nnoremap <C-H> <C-W><C-H>
-
-
-"Useful shortcut 2. fold and unfold
-nnoremap <space> za
 
 
 "Useful shortcut 3. ESC key --> jj
@@ -264,12 +243,6 @@ nnoremap <F3> :vertical resize +5<CR>
 nnoremap <F4> :vertical resize -5<cr>
 nnoremap <F5> :resize +5<cr>
 nnoremap <F6> :resize -5<CR>
-
-
-"Keymap for syntax inspection
-""" Python dedicated.
-""" changed to original keymap f7 at v.1.6.4
-autocmd FileType python map <buffer> <F6> :call Flake8()<CR>
 
 
 "Keymap for ENTER
@@ -294,20 +267,6 @@ inoremap <F1> <ESC>:tabprevous<CR>
 inoremap <F2> <ESC>:tabnext<CR>
 
 
-"Shifting through tabs with tab numbers.
-nnoremap t1 1gt
-nnoremap t2 2gt
-nnoremap t3 3gt
-nnoremap t4 4gt
-nnoremap t5 5gt
-nnoremap t6 6gt
-nnoremap t7 7gt
-nnoremap t8 8gt
-nnoremap t9 9gt
-nnoremap t0 10gt
-"""
-
-
 "Save and quit in insert mode. Same as Shift ZZ.
 inoremap <S-Z>Z <ESC>:wq<CR>
 
@@ -322,20 +281,9 @@ inoremap <S-F>S <ESC>:w<CR>ma
 let g:user_emmet_expandabbr_key = '<c-e>'  " Which stands for 'e'mmet
 
 
-"Key map for surround.vim
-""" Keymap for django jinja template # 1.2.0
-let g:surround_{char2nr("b")} = "{% block '\r' %}\n{% endblock %}"
-let g:surround_{char2nr("c")} = "{% comment \r %}\n\n{% endcomment %}"
-let g:surround_{char2nr("f")} = "{% for \r %}\n\n{% endfor %}"
-let g:surround_{char2nr("F")} = "{% for \r %}\n\n{% emtpy %}\n\n{% endfor %}"
-let g:surround_{char2nr("i")} = "{% if \r %}\n\n{% else %}\n\n{% endif %}"
-let g:surround_{char2nr("I")} = "{% if \r %}\n\n{% elif %}\n\n{% elif %}\n\n{% else %}\n\n{% endif %}"
-let g:surround_{char2nr("p")} = "{% \r %}"
-
-
 "Key map for ctrlP
 "Changed due to duplication with keymap for resizing window in vim at 1.6.3
-let g:ctrlp_map = '<c-f>'
+let g:ctrlp_map = '<c-f>' " 'f' stands for 'find'
 
 
 "Tab shifting with tab and <shift> + tab at v.1.7.0
@@ -344,32 +292,5 @@ nnoremap <tab> :bnext<cr>
 nnoremap <s-tab> :bprevious<cr>
 
 
-"Key map to close current buffer at v.1.7.0
-""" This keymap closes current buffer with cursor on.
-""" Becareful not to execute on NERDTree
-""" <leader><q> exceutes the function
-"function CloseCurrentBuffer()
-"        let current_buffer=bufnr('$')
-"        bn
-"        exec 'bw'.string(current_buffer)
-"endfunction
-
-"nmap <Leader>q :call CloseCurrentBuffer()<CR>
-
-
 "Key map for closing current buffer at v.1.7.1
-""" My yesterday version was somewhat complex and I'll use simple one.
-""" You know simple is better. Keymap is same
 nnoremap <leader>q :b#<bar>bd#<CR>
-
-"Set noswapfile at v.1.7.2
-""" It was a big stress that vim makes swap files any time it's annoyed.
-""" Stop that, boy.
-set noswapfile
-
-
-"Set visual block copy yanked to global clipboard at v.1.7.3
-""" It was really annoying to copy vim contents and paste them into others.
-""" This option lets visual block yank copyed to global clipboard
-set clipboard=unnamedplus  "For linux and vim over 7.3.74
-"set clipboard=unnamed     "For macOS
