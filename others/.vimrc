@@ -1,22 +1,10 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-" Update date : 2019/08/15
-" Version : 2.0.0
+" Update date : 2019/08/16
+" Version : 2.1.0
 "
 " Last modified:
-"	1. Trim contents in .vimrc file
-"	 - Sort plugin list order alphabetically
-"	 - Remove unnecessary comments
-"	 - Move some settings from previous locations to their appropriate
-"	 categories
-"
-"	2. Update plugins to their latest statuses
-"
-"	3. Remove all customized keymaps for jinja template syntax from
-"	surround.vim
-"
-"	4. Remove keymap for manual flake8 checkings(cuase it's done
-"	automatically after every file saving)
+"	1. Install vim-better-whitespace
 "
 "
 " * https://github.com/shoark7 *
@@ -42,6 +30,7 @@ Plugin 'jnurmine/Zenburn'
 Plugin 'kien/ctrlp.vim'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'L9'
+Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'nvie/vim-flake8'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'scrooloose/nerdcommenter'
@@ -105,22 +94,6 @@ au BufNewFile,BufRead *.js,*.html,*.css
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
-
-
-"Setting for whitespace
-""Bad whitespace
-"""Setting for BadWhitespace
-highlight BadWhitespace ctermbg=red guibg=darkred
-
-"""Notify for bad whitespaces"
-au BufRead,BufNewFile,BufEnter *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-
-""whitespace for markdown at v.1.7.4
-"""Setting for markdown whitespace
-highlight NewlineWhitespace ctermbg=green guibg=green
-
-"""Highlight newline character for markdown files.
-au BufRead,BufNewFile,BufEnter *.md,*.markdown match NewlineWhitespace /\s\+$/
 
 
 "Always open a file in a new tab
