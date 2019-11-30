@@ -1,10 +1,10 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-" Update date : 2019/08/16
-" Version : 2.1.0
+" Update date : 2019/11/30
+" Version : 2.1.1
 "
 " Last modified:
-"	1. Install vim-better-whitespace
+"	1. Make YCM work properly
 "
 "
 " * https://github.com/shoark7 *
@@ -147,9 +147,10 @@ let g:ycm_server_keep_logfiles = 0
 let g:ycm_server_log_level = 'debug'
 set completeopt-=preview  " Turn off preview window. It is annoying.. At 1.6.3
 let g:ycm_goto_buffer_command = 'vertical-split'
-let g:ycm_python_binary_path = '/home/sunghwanpark/.pyenv/versions/3.5.2/bin/python3.5' 
-" This python route should have modules you want or ycm cannot suggest words or
-" phrases you want
+let g:ycm_min_num_of_chars_for_completion = 3
+let g:ycm_max_num_identifier_candidates = 7
+nnoremap fd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"let g:ycm_python_binary_path = '/home/sunghwanpark/.pyenv/shims/ipython'
 
 
 "Setting for vim-flake8
@@ -201,12 +202,12 @@ nnoremap <C-H> <C-W><C-H>
 inoremap jj <ESC>
 
 
-"Keymap for NERDTree and variable list toggle 
+"Keymap for NERDTree and variable list toggle
 """ Changed to f8, f9 at v.1.6.4
 nmap <F8> :NERDTreeToggle<CR>
 nmap <F9> :TlistToggle<CR>
 "l keymap in vim not working in tmuxrdtree refresh keymap <Leader><r> at v.1.6.1
-nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p><esc> 
+nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p><esc>
 
 
 "Keymap for window sizing
@@ -222,8 +223,6 @@ nnoremap <F6> :resize -5<CR>
 map <ENTER> i<ENTER>
 
 
-"Go to definition keymap
-nnoremap fd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 
 " Tab keymaps.
